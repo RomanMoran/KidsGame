@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">KidsGame</string>
+    <string name="sound_locale">en</string>
+    <string name="wait_loading">Wait&#8230;</string>
+    <string name="open_eggs">Kinder</string>
+    <string name="open_puzzle">Puzzle</string>
+    <string name="collection">Collection</string>
+    <string name="about_us">About us</string>
+    <string name="next_level">Want more!</string>
+    <string name="blocked">Blocked</string>
+
+    <string name="airplane">Airplane</string>
+    <string name="ambulance">Ambulance</string>
+    <string name="bicycle">Bicycle</string>
+    <string name="boat">Boat</string>
+    <string name="bus">Bus</string>
+    <string name="car">Car</string>
+    <string name="dumptruck">Dump truck</string>
+    <string name="fire_machine">Fire truck</string>
+    <string name="helicopter">Helicopter</string>
+    <string name="motorcycle">Motorcycle</string>
+    <string name="police_car">Police car</string>
+    <string name="tractor">Tractor</string>
+    <string name="train">Train</string>
+    <string name="tram">Tram</string>
+    <string name="menu_lang_en">ENG</string>
+    <string name="menu_lang_ru">RUS</string>
+    <string name="open">Open yet</string>
+    <string name="lacking_of_items">It remains to erase : </string>
+    <string name="go_to_puzzle">Game is allowed</string>
+    <string name="go_to_puzzle_fragment">Let\'\s go play</string>
+    <string name="sound_enable">Sounds</string>
+    <string name="continue_game">Continue</string>
+    <string name="go_scratch_puzzles">Scratch off toys</string>
+    <string name="what_do">What do we do?</string>
+    <string name="choose_one">Choose one thing</string>
+    <string name="success">Well done, you did it!</string>
+
+    <string name="jacket">Jacket</string>
+    <string name="jeans">Jeans</string>
+    <string name="pants">Pants</string>
+    <string name="skirt">Skirt</string>
+    <string name="dress">Dress</string>
+    <string name="t_shirt">T-shirt</string>
+    <string name="vest">Vest</string>
+
+    <!--<string name="jacket">Пиджак</string>
+    <string name="jeans">Джинсы</string>
+    <string name="pants">Брюки</string>
+    <string name="skirt">Юбка</string>
+    <string name="dress">Платье</string>
+    <string name="t_shirt">Футболка</string>
+    <string name="vest">Жилет</string>-->
+    <string name="toys">TOYS</string>
+    <string name="clothes">CLOTHES</string>
+    <string name="furniture">FURNITURE</string>
+</resources>

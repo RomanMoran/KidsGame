@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- The drawables used here can be solid colors, gradients, shapes, images, etc. -->
+       <!-- <item android:drawable="@drawable/original_state" />
+        <item android:drawable="@drawable/new_state" />-->
+        <translate
+            android:duration="3000"
+            android:fromXDelta="0"
+            android:fromYDelta="-100"
+            android:toXDelta="0"
+            android:toYDelta="50"/>
+        <!--<alpha
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:fromAlpha="0.4"
+            android:toAlpha="1.0"
+            android:duration="2500"
+            android:startOffset="500">
+        </alpha>-->
+        <translate
+            android:duration="3000"
+            android:fromXDelta="0"
+            android:fromYDelta="0"
+            android:toXDelta="0"
+            android:toYDelta="-250"
+            android:startOffset="6500"/>
+        <alpha
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:fromAlpha="1.0"
+            android:toAlpha="0.3"
+            android:duration="3500"
+            android:startOffset="6500"/>
+</set>

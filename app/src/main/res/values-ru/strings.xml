@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">KidsGame</string>
+    <string name="sound_locale">ru</string>
+    <string name="wait_loading">Ожидайте&#8230;</string>
+    <string name="open_eggs">Киндер</string>
+    <string name="open_puzzle">Пазлы</string>
+    <string name="collection">Коллекция</string>
+    <string name="about_us">О нас</string>
+    <string name="next_level">Хочу еще!</string>
+    <string name="blocked">Заблокирован</string>
+
+    <string name="airplane">Самолет</string>
+    <string name="ambulance">Скорая помощь</string>
+    <string name="bicycle">Велосипед</string>
+    <string name="boat">Параход</string>
+    <string name="bus">Автобус</string>
+    <string name="car">Автомобиль</string>
+    <string name="dumptruck">Самосвал</string>
+    <string name="fire_machine">Пожарная машина</string>
+    <string name="helicopter">Вертолет</string>
+    <string name="motorcycle">Мотоцикл</string>
+    <string name="police_car">Полицейская машина</string>
+    <string name="tractor">Трактор</string>
+    <string name="train">Поезд</string>
+    <string name="tram">Трамвай</string>
+    <string name="open">Open yet</string>
+    <string name="lacking_of_items">Осталось стереть : </string>
+    <string name="go_to_puzzle">Теперь игра разрешена</string>
+    <string name="go_to_puzzle_fragment">Играть в игру</string>
+    <string name="sound_enable">Звуки</string>
+    <string name="continue_game">Продолжить</string>
+    <string name="go_scratch_puzzles">Раскрывать игрушки</string>
+    <string name="what_do">Что будем делать?</string>
+    <string name="choose_one">Выберете что-то одно</string>
+    <string name="success">Молодец, ты справился !</string>
+    
+    <string name="jacket">Пиджак</string>
+    <string name="jeans">Джинсы</string>
+    <string name="pants">Брюки</string>
+    <string name="skirt">Юбка</string>
+    <string name="dress">Платье</string>
+    <string name="t_shirt">Футболка</string>
+    <string name="vest">Жилет</string>
+
+    <string name="toys">ИГРУШКИ</string>
+    <string name="clothes">ОДЕЖДА</string>
+    <string name="furniture">МЕБЕЛЬ</string>
+</resources>

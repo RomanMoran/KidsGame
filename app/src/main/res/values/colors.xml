@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="blue">#0000ff</color>
+    <color name="dorge_blue">#1E90FF</color>
+    <color name="strawberryColor">#FB2943</color>
+    <color name="orange">#FEAB40</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000</color>
+    <color name="birusovii">#3F888F</color>
+    <color name="darkBirusovii">#8D917A	</color>
+    <color name="textDarkBirusovii">#025669</color>
+</resources>

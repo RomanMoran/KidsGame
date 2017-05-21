@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="android1601.itstep.org.kidsgame">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".program.KidsApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/kids_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.Light.NoActionBar"
+        tools:replace='android:icon'>
+       <!-- android:theme="@style/Theme.AppCompat.NoActionBar"-->
+
+        <activity android:name=".program.activity.MainActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan">
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".program.activity.KinderActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".program.activity.CollectionActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".program.activity.PuzzleActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".program.activity.ToysDetailActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan"
+            />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6658b211a6ef04addce76c0ca37271725e7debe9" />
+
+    </application>
+
+</manifest>

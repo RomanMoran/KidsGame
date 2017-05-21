@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/puzzleFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/texture_background">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/leftEmptyImage1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_water"/>
+
+
+    <ImageView
+        android:id="@+id/imgEmpty4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/imgEmpty3"
+        android:layout_marginBottom="-130dp"
+        android:layout_toRightOf="@+id/imgEmpty3"
+        android:src="@drawable/car1_inactive"/>
+
+    <ImageView
+        android:id="@+id/imgEmpty3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/car1_inactive"
+        android:layout_toRightOf="@id/leftEmptyImage1"
+        android:layout_above="@+id/imgEmpty2"
+        android:layout_marginTop="55dp" />
+
+    <ImageView
+        android:id="@+id/imgEmpty2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@+id/leftEmptyImage2"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/car1_inactive"/>
+
+    <ImageView
+        android:id="@+id/imgEmpty1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/car1_inactive"/>
+
+
+    <View
+        android:id="@+id/leftEmptyImage1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+
+    <View
+        android:id="@+id/leftEmptyImage2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/leftEmptyImage1"
+        />
+
+    <View
+        android:id="@+id/leftEmptyImage3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/leftEmptyImage2"
+        />
+
+    <View
+        android:id="@+id/leftEmptyImage4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/leftEmptyImage3"
+        />
+    <ImageView
+        android:id="@+id/imgCar1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/car1"/>
+
+    <ImageView
+        android:id="@+id/imgCar2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/leftEmptyImage1"
+        android:src="@drawable/car1"/>
+
+    <ImageView
+        android:id="@+id/imgCar3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/leftEmptyImage2"
+        android:src="@drawable/car1"/>
+
+    <ImageView
+        android:id="@+id/imgCar4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/leftEmptyImage3"
+        android:src="@drawable/car1"/>
+
+
+
+
+</RelativeLayout>

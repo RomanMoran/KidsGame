@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewCategory"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding">
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/openEggs"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:textColor="@color/white"
+        android:padding="@dimen/default_padding"
+        android:text="@string/open_eggs"
+        />
+    <Button
+        android:id="@+id/openPuzzle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:textColor="@color/white"
+        android:padding="@dimen/default_padding"
+        android:text="@string/open_puzzle"
+        />
+    <Button
+        android:id="@+id/openCollection"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:textColor="@color/white"
+        android:padding="@dimen/default_padding"
+        android:text="@string/collection"
+        />
+
+    <Button
+        android:id="@+id/aboutUs"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:textColor="@color/white"
+        android:padding="@dimen/default_padding"
+        android:text="@string/about_us"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgLanguages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rbEng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:padding="7dp"
+            android:background="@drawable/rbtn_selector"
+            android:text="@string/menu_lang_en" />
+
+        <RadioButton
+            android:id="@+id/rbRus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rbtn_selector"
+            android:button="@null"
+            android:layout_marginLeft="10dp"
+            android:padding="7dp"
+            android:text="@string/menu_lang_ru" />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sound_enable"/>
+        <Switch
+            android:id="@+id/switchSounds"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>
