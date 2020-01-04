@@ -3,7 +3,7 @@ package android1601.itstep.org.kidsgame.program.fragments;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;

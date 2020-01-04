@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
@@ -60,7 +60,6 @@ public class PuzzleFragment extends BaseFragment {
     List<ImageView> imgEmptyCarsList;
 
 
-
     private boolean touchFlag = false;
     private ViewGroup.LayoutParams lastDragImageParams;
 
@@ -94,7 +93,7 @@ public class PuzzleFragment extends BaseFragment {
         PuzzleFragment fragment = new PuzzleFragment();
         Bundle bundle = new Bundle();
 
-        bundle.putParcelableArrayList(BUNDLE_TOYS,(ArrayList<?extends Parcelable>)toyList);
+        bundle.putParcelableArrayList(BUNDLE_TOYS, (ArrayList<? extends Parcelable>) toyList);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -102,8 +101,8 @@ public class PuzzleFragment extends BaseFragment {
 
     @Override
     public int getLayoutResId() {
-        for (Gifts gifts: mGiftsList) {
-            switch (gifts.getPositionEnum()){
+        for (Gifts gifts : mGiftsList) {
+            switch (gifts.getPositionEnum()) {
                 case WATER:
                     countWater++;
                     break;
@@ -114,54 +113,55 @@ public class PuzzleFragment extends BaseFragment {
                 case UNKNOWN:
                 default:
                     countGround++;
-                break;
+                    break;
             }
         }
 
-        if (countAir==1 && countWater==1){
+        if (countAir == 1 && countWater == 1) {
             requery();
             return R.layout.fragment_puzzle_water_one_air;
         }
-        if (countAir==2 && countWater==1){
+        if (countAir == 2 && countWater == 1) {
             requery();
             return R.layout.fragment_puzzle_water_two_air;
         }
-        if (countWater==1 && countGround==3){
+        if (countWater == 1 && countGround == 3) {
             requery();
             return R.layout.fragment_puzzle_water_only;
         }
 
-        if (countAir==2 && countGround==2){
+        if (countAir == 2 && countGround == 2) {
             requery();
-            return R.layout.fragment_puzzle_two_air_two_ground;}
-        if (countAir==1 && countGround==3){
+            return R.layout.fragment_puzzle_two_air_two_ground;
+        }
+        if (countAir == 1 && countGround == 3) {
             requery();
-            return R.layout.fragment_puzzle_one_air_three_ground;}
-
+            return R.layout.fragment_puzzle_one_air_three_ground;
+        }
 
 
         return R.layout.fragment_puzzle;
     }
 
     private void requery() {
-        ArrayList<Gifts>containerAirs = new ArrayList<>();
-        ArrayList<Gifts>containerWaters = new ArrayList<>();
-        ArrayList<Gifts>containerCars = new ArrayList<>();
-        for (int i = 0; i < mGiftsList.size() ; i++) {
-           if (mGiftsList.get(i).getPositionEnum()==POSITION_TYPE.AIR){
-               containerAirs.add(mGiftsList.get(i));
-               continue;
-           }
-           if (mGiftsList.get(i).getPositionEnum()==POSITION_TYPE.WATER){
-               containerWaters.add(mGiftsList.get(i));
-               continue;
-           }
-           containerCars.add(mGiftsList.get(i));
+        ArrayList<Gifts> containerAirs = new ArrayList<>();
+        ArrayList<Gifts> containerWaters = new ArrayList<>();
+        ArrayList<Gifts> containerCars = new ArrayList<>();
+        for (int i = 0; i < mGiftsList.size(); i++) {
+            if (mGiftsList.get(i).getPositionEnum() == POSITION_TYPE.AIR) {
+                containerAirs.add(mGiftsList.get(i));
+                continue;
+            }
+            if (mGiftsList.get(i).getPositionEnum() == POSITION_TYPE.WATER) {
+                containerWaters.add(mGiftsList.get(i));
+                continue;
+            }
+            containerCars.add(mGiftsList.get(i));
         }
-        for (int i = 0; i <containerCars.size() ; i++) {
+        for (int i = 0; i < containerCars.size(); i++) {
             containerWaters.add(containerCars.get(i));
         }
-        for (int i = 0; i <containerAirs.size() ; i++) {
+        for (int i = 0; i < containerAirs.size(); i++) {
             containerWaters.add(containerAirs.get(i));
         }
         mGiftsList = containerWaters;
@@ -170,7 +170,7 @@ public class PuzzleFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getArguments()!=null){
+        if (getArguments() != null) {
             Bundle bundle = getArguments();
             mGiftsList = bundle.getParcelableArrayList(BUNDLE_TOYS);
         }
@@ -192,9 +192,9 @@ public class PuzzleFragment extends BaseFragment {
 
     private void initImages() {
         // Инициализируем передвигаемые объекты (машинки)
-        for (int i = 0; i <imgLeftCarsList.size() ; i++) {
+        for (int i = 0; i < imgLeftCarsList.size(); i++) {
             ImageView imageView = imgLeftCarsList.get(i);
-            if (mGiftsList.size()>i){
+            if (mGiftsList.size() > i) {
                 // Получаем значение int нашего изображение
                 int resourceId = mGiftsList.get(i).getImageResId();
 
@@ -205,13 +205,13 @@ public class PuzzleFragment extends BaseFragment {
                         .load(resourceId)
                         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                         .skipMemoryCache(true)
-                        .animate(R.anim.combo)
+                        //.animate(R.anim.combo)
                         .into(imageView);
             }
-            updateSize(imageView,imageWidth,imageHeight);
+            updateSize(imageView, imageWidth, imageHeight);
         }
-        
-        for (int i = 0; i < imgEmptyCarsList.size() ; i++) {
+
+        for (int i = 0; i < imgEmptyCarsList.size(); i++) {
             ImageView imageView = imgEmptyCarsList.get(i);
             if (mGiftsList.size() > i) {
                 // Получаем значение int нашего изображения
@@ -224,15 +224,15 @@ public class PuzzleFragment extends BaseFragment {
                         .load(resourceId)
                         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                         .skipMemoryCache(true)
-                        .animate(R.anim.change)
+                        //.animate(R.anim.change)
                         .into(imageView);
             }
             updateSize(imageView, imageWidth, imageHeight);
         }
 
-        for (int i = 0; i <imgEmptyLeftCarsList.size() ; i++) {
+        for (int i = 0; i < imgEmptyLeftCarsList.size(); i++) {
             View imageView = imgEmptyLeftCarsList.get(i);
-            updateSize(imageView,imageWidth,imageHeight);
+            updateSize(imageView, imageWidth, imageHeight);
         }
     }
 
@@ -288,16 +288,16 @@ public class PuzzleFragment extends BaseFragment {
                     touchFlag = false;
                     //определяем координаті центра перемещаемого изображения
                     lp = (RelativeLayout.LayoutParams) draggableImage.getLayoutParams();
-                    int centerX=lp.leftMargin+imageWidth/2;
-                    int centerY=lp.topMargin+imageHeight/2;
+                    int centerX = lp.leftMargin + imageWidth / 2;
+                    int centerY = lp.topMargin + imageHeight / 2;
                     // сравниваем попал ли центр перемещаемого изображения в "целевой прямоуголник"
                     // отнимаем 1/3 ширины и высоты от краев тем самым уменьшая область прямоугольника
                     // тем самым образуя "целевой прямоугольник"
                     if (targetEmptyImage != null &&
-                            centerX > targetEmptyImage.getLeft()+imageWidth/3 &&
-                            centerX < targetEmptyImage.getRight()-imageWidth/3 &&
-                            centerY > targetEmptyImage.getTop()+imageHeight/3 &&
-                            centerY < targetEmptyImage.getBottom()-imageHeight/3) {
+                            centerX > targetEmptyImage.getLeft() + imageWidth / 3 &&
+                            centerX < targetEmptyImage.getRight() - imageWidth / 3 &&
+                            centerY > targetEmptyImage.getTop() + imageHeight / 3 &&
+                            centerY < targetEmptyImage.getBottom() - imageHeight / 3) {
                         targetEmptyImage.setImageDrawable(draggableImage.getDrawable());
                         draggableImage.setVisibility(View.INVISIBLE);
                         countImages++;
@@ -333,27 +333,27 @@ public class PuzzleFragment extends BaseFragment {
         return false;
     }
 
-    private void showWinTextAndSound(){
-        if (!mMediaPlayerSound.isPlaying()  && countImages>=4) {
+    private void showWinTextAndSound() {
+        if (!mMediaPlayerSound.isPlaying() && countImages >= 4) {
             mMediaPlayerSoundWin.start();
             TextView tv = new TextView(getContext());
             tv.setText(getResources().getString(R.string.success));
-            tv.setTextSize(displayWidth/23);
+            tv.setTextSize(displayWidth / 23);
             tv.setTextColor(getResources().getColor(R.color.dorge_blue));
             final RelativeLayout.LayoutParams tvParams =
                     new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                             RelativeLayout.LayoutParams.WRAP_CONTENT);
             tvParams.addRule(RelativeLayout.CENTER_IN_PARENT);
             tv.setGravity(Gravity.CENTER);
-            mRelativeLayout.addView(tv,tvParams);
-            Animation anim = AnimationUtils.loadAnimation(getContext(),R.anim.change_text);
+            mRelativeLayout.addView(tv, tvParams);
+            Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.change_text);
 
             tv.setTypeface(Utility.getTypeface());
             tv.startAnimation(anim);
         }
     }
 
-    protected void onInitMediaPlayer (){
+    protected void onInitMediaPlayer() {
         if (mMediaPlayerSoundWin != null)
             mMediaPlayerSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -362,7 +362,7 @@ public class PuzzleFragment extends BaseFragment {
                     mMediaPlayerSoundWin.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            PuzzleActivity puzzleActivity = (PuzzleActivity)getActivity();
+                            PuzzleActivity puzzleActivity = (PuzzleActivity) getActivity();
                             puzzleActivity.showPuzzleFragment(DBHelper.getRandomFourItems());
 
                         }
@@ -372,19 +372,20 @@ public class PuzzleFragment extends BaseFragment {
 
     }
 
-    private class LoadResIdSound extends AsyncTask<Void,Void,Void>{
+    private class LoadResIdSound extends AsyncTask<Void, Void, Void> {
         int soundRawId;
         int soundRawWin;
+
         @Override
         protected Void doInBackground(Void... params) {
             /*soundRawId = MainActivity.muteSound ? R.raw.magic_sound : R.raw.mute_sound;
             soundRawWin = MainActivity.muteSound ? R.raw.sound_win : R.raw.mute_sound;*/
-            soundRawId =  R.raw.magic_sound;
+            soundRawId = R.raw.magic_sound;
             soundRawWin = R.raw.sound_win;
-            if (soundRawId != 0 && soundRawWin!=0) {
+            if (soundRawId != 0 && soundRawWin != 0) {
                 if (getContext() != null)
                     mMediaPlayerSound = MediaPlayer.create(getContext(), soundRawId);
-                    mMediaPlayerSoundWin = MediaPlayer.create(getContext(), soundRawWin);
+                mMediaPlayerSoundWin = MediaPlayer.create(getContext(), soundRawWin);
             }
             return null;
         }

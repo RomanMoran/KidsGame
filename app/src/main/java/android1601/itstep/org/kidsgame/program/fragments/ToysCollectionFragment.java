@@ -1,9 +1,9 @@
 package android1601.itstep.org.kidsgame.program.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -13,7 +13,6 @@ import android1601.itstep.org.kidsgame.R;
 import android1601.itstep.org.kidsgame.program.adapters.ToysCollectionAdapter;
 import android1601.itstep.org.kidsgame.program.data.Gifts;
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper;
-import android1601.itstep.org.kidsgame.program.enums.SECTIONS_TYPE;
 import butterknife.BindView;
 
 /**
