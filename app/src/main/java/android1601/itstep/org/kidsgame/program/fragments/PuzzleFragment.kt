@@ -1,6 +1,5 @@
 package android1601.itstep.org.kidsgame.program.fragments
 
-import android.graphics.Point
 import android.media.MediaPlayer
 import android.os.AsyncTask
 import android.os.Bundle
@@ -9,17 +8,10 @@ import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.Target
-
-import java.util.ArrayList
-
 import android1601.itstep.org.kidsgame.R
 import android1601.itstep.org.kidsgame.program.Utility.Utility
 import android1601.itstep.org.kidsgame.program.activity.PuzzleActivity
@@ -27,20 +19,20 @@ import android1601.itstep.org.kidsgame.program.data.Gifts
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import android1601.itstep.org.kidsgame.program.enums.POSITION_TYPE
 import butterknife.BindView
-import butterknife.BindViews
 import butterknife.OnTouch
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.Target
+import java.util.*
 
 /**
  * Created by roman on 14.03.2017.
  */
 
 class PuzzleFragment : BaseFragment() {
-    @BindViews(R.id.imgCar1, R.id.imgCar2, R.id.imgCar3, R.id.imgCar4)
-    internal var imgLeftCarsList: List<ImageView>? = null
-    @BindViews(R.id.leftEmptyImage1, R.id.leftEmptyImage2, R.id.leftEmptyImage3, R.id.leftEmptyImage4)
-    internal var imgEmptyLeftCarsList: List<View>? = null
-    @BindViews(R.id.imgEmpty1, R.id.imgEmpty2, R.id.imgEmpty3, R.id.imgEmpty4)
-    internal var imgEmptyCarsList: List<ImageView>? = null
+    
+    val imgLeftCarsList = listOf(R.id.imgCar1, R.id.imgCar2, R.id.imgCar3, R.id.imgCar4)
+    val imgEmptyLeftCarsList = listOf(R.id.leftEmptyImage1, R.id.leftEmptyImage2, R.id.leftEmptyImage3, R.id.leftEmptyImage4)
+    val imgEmptyCarsList = listOf(R.id.imgEmpty1, R.id.imgEmpty2, R.id.imgEmpty3, R.id.imgEmpty4)
 
 
     private var touchFlag = false
@@ -55,7 +47,7 @@ class PuzzleFragment : BaseFragment() {
     private var offsetY = 0
     private var targetEmptyImage: ImageView? = null
     private var draggableImage: ImageView? = null
-    internal var mGiftsList: ArrayList<Gifts>? = null
+    private var mGiftsList: ArrayList<Gifts>? = null
 
     private var countAir = 0
     private var countGround = 0
@@ -65,9 +57,6 @@ class PuzzleFragment : BaseFragment() {
     private var mMediaPlayerSoundWin: MediaPlayer? = null
 
     private var countImages = 0
-
-    @BindView(R.id.puzzleFragment)
-    internal var mRelativeLayout: RelativeLayout? = null
 
 
     override val layoutResId: Int
@@ -154,8 +143,9 @@ class PuzzleFragment : BaseFragment() {
 
     private fun initImages() {
         // Инициализируем передвигаемые объекты (машинки)
-        for (i in imgLeftCarsList!!.indices) {
-            val imageView = imgLeftCarsList!![i]
+        for (i in imgLeftCarsList.indices) {
+            val imageViewRes = imgLeftCarsList[i]
+            val imageView = view!!.findViewById<ImageView>(imageViewRes)
             if (mGiftsList!!.size > i) {
                 // Получаем значение int нашего изображение
                 val resourceId = mGiftsList!![i].imageResId
@@ -173,8 +163,9 @@ class PuzzleFragment : BaseFragment() {
             updateSize(imageView, imageWidth, imageHeight)
         }
 
-        for (i in imgEmptyCarsList!!.indices) {
-            val imageView = imgEmptyCarsList!![i]
+        for (i in imgEmptyCarsList.indices) {
+            val imageViewRes = imgEmptyCarsList[i]
+            val imageView = view!!.findViewById<ImageView>(imageViewRes)
             if (mGiftsList!!.size > i) {
                 // Получаем значение int нашего изображения
                 val resourceId = mGiftsList!![i].silhouetteResId
@@ -192,8 +183,9 @@ class PuzzleFragment : BaseFragment() {
             updateSize(imageView, imageWidth, imageHeight)
         }
 
-        for (i in imgEmptyLeftCarsList!!.indices) {
-            val imageView = imgEmptyLeftCarsList!![i]
+        for (i in imgEmptyLeftCarsList.indices) {
+            val imageViewRes = imgEmptyLeftCarsList[i]
+            val imageView = view!!.findViewById<ImageView>(imageViewRes)
             updateSize(imageView, imageWidth, imageHeight)
         }
     }
@@ -205,11 +197,14 @@ class PuzzleFragment : BaseFragment() {
     }
 
     private fun whatImage(view: View, event: MotionEvent) {
-        for (i in imgLeftCarsList!!.indices) {
-            val imageView = imgLeftCarsList!![i]
+        for (i in imgLeftCarsList.indices) {
+            val imageViewRes = imgLeftCarsList[i]
+            val imageViewEmptyRes = imgEmptyCarsList[i]
+            val imageView = view.findViewById<ImageView>(imageViewRes)
+            val imageViewEmpty = view.findViewById<ImageView>(imageViewEmptyRes)
             if (imageView == view) {
-                draggableImage = imgLeftCarsList!![i]
-                targetEmptyImage = imgEmptyCarsList!![i]
+                draggableImage = imageView
+                targetEmptyImage = imageViewEmpty
                 LoadResIdSound().execute()
                 // перемещаемое изображение на передний план
                 draggableImage!!.bringToFront()
@@ -300,7 +295,8 @@ class PuzzleFragment : BaseFragment() {
                     RelativeLayout.LayoutParams.WRAP_CONTENT)
             tvParams.addRule(RelativeLayout.CENTER_IN_PARENT)
             tv.gravity = Gravity.CENTER
-            mRelativeLayout!!.addView(tv, tvParams)
+            val puzzleFragment = view!!.findViewById<RelativeLayout>(R.id.puzzleFragment)
+            puzzleFragment!!.addView(tv, tvParams)
             val anim = AnimationUtils.loadAnimation(context, R.anim.change_text)
 
             tv.setTypeface(Utility.typeface)

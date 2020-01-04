@@ -23,10 +23,6 @@ import butterknife.BindView
 open class BaseEggDetailFragment : BaseFragment() {
 
     var mGiftsList: Gifts? = null
-    @BindView(R.id.revealedImage)
-    internal var imgView: ImageView? = null
-    @BindView(R.id.imageName)
-    internal var imageName: TextView? = null
     protected var mMediaPlayerVoice: MediaPlayer? = null
     protected var mMediaPlayerSound: MediaPlayer? = null
     protected var mMediaPlayerSoundWin: MediaPlayer? = null
@@ -51,13 +47,15 @@ open class BaseEggDetailFragment : BaseFragment() {
 
     protected open fun onInitImageAndText(toyImageId: Int, toyTextId: Int) {
         if (toyImageId != 0) {
+            val revealedImage = view?.findViewById<ImageView>(R.id.revealedImage)
             Glide.with(context!!)
                     .load(toyImageId)
                     .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
-                    .into(imgView!!)
+                    .into(revealedImage!!)
         }
         if (toyTextId != 0)
             try {
+                val imageName = view?.findViewById<TextView>(R.id.imageName)
                 imageName!!.setText(toyTextId)
             } catch (e: Resources.NotFoundException) {
                 e.printStackTrace()

@@ -9,6 +9,7 @@ import android1601.itstep.org.kidsgame.R
 import android1601.itstep.org.kidsgame.program.Utility.Utility
 import android1601.itstep.org.kidsgame.program.data.Gifts
 import butterknife.OnClick
+import kotlinx.android.synthetic.main.fragment_toy_details.*
 
 /**
  * Created by roman on 10.04.2017.
@@ -30,24 +31,24 @@ class ToyDetailsFragment : BaseEggDetailFragment() {
             var image = Utility.getStringResourseById(toyImageId)
             image += "_inactive"
             toyImageId = Utility.getDrawableResourceIdByName(image)
-            imgView!!.setImageResource(toyImageId)
+            revealedImage!!.setImageResource(toyImageId)
             imageName!!.setText(R.string.blocked)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        imgView!!.isEnabled = false
+        revealedImage!!.isEnabled = false
     }
 
     override fun startItemSound() {
         super.startItemSound()
-        imgView!!.isEnabled = true
+        revealedImage!!.isEnabled = true
     }
 
     @OnClick(R.id.revealedImage)
     internal fun refresh() {
-        imgView!!.isEnabled = false
+        revealedImage!!.isEnabled = false
         startVoice()
     }
 
@@ -62,7 +63,7 @@ class ToyDetailsFragment : BaseEggDetailFragment() {
                     mMediaPlayerSound!!.pause()
                 mMediaPlayerVoice!!.start()
                 val mAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.combo)
-                imgView!!.startAnimation(mAnimation)
+                revealedImage!!.startAnimation(mAnimation)
 
             }
         } else {

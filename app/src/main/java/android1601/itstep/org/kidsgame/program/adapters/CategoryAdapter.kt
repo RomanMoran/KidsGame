@@ -21,32 +21,24 @@ import android1601.itstep.org.kidsgame.program.Utility.Utility
 import android1601.itstep.org.kidsgame.program.data.GiftsSection
 import butterknife.BindView
 import butterknife.ButterKnife
+import kotlinx.android.synthetic.main.list_item_category.view.*
 
 /**
  * Created by roman on 24.04.2017.
  */
 
 class CategoryAdapter(private val mContext: Context, internal var sections: List<GiftsSection>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-    private val selectedItems: SparseBooleanArray
+
+    private val selectedItems: SparseBooleanArray = SparseBooleanArray()
     private var currentId: Long = 0
     private var onItemClickListener: AdapterView.OnItemClickListener? = null
-
-    init {
-        selectedItems = SparseBooleanArray()
-    }
 
     // класс view holder-а с помощью которого мы получаем ссылку на каждый элемент
     // отдельного пункта списка
     inner class ViewHolder(itemView: View, private val mAdapter: CategoryAdapter) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        @BindView(R.id.imageCategory)
-        internal var imageCategory: ImageView? = null
-        @BindView(R.id.myBackground)
-        internal var myBackground: LinearLayout? = null
 
         init {
-            ButterKnife.bind(this, itemView)
             itemView.setOnClickListener(this)
-
         }
 
         fun bind(giftsSection: GiftsSection) {
@@ -54,7 +46,7 @@ class CategoryAdapter(private val mContext: Context, internal var sections: List
                     .load(Utility.getDrawableResourceIdByName(
                             giftsSection.titleResName!!
                     ))
-                    .into(imageCategory!!)
+                    .into(itemView.imageCategory)
         }
 
         fun setDateToView(section: GiftsSection) {
@@ -62,9 +54,9 @@ class CategoryAdapter(private val mContext: Context, internal var sections: List
             val drawableF = mContext.resources.getDrawable(R.drawable.enable_false)
             if (section.id == currentId)
             //myBackground.setBackgroundColor(Color.BLUE);
-                myBackground!!.background = drawableT
+                itemView.myBackground.background = drawableT
             else
-                myBackground!!.background = drawableF//else myBackground.setBackgroundColor(Color.WHITE);
+                itemView.myBackground.background = drawableF//else myBackground.setBackgroundColor(Color.WHITE);
         }
 
         override fun onClick(v: View) {

@@ -16,6 +16,7 @@ import android1601.itstep.org.kidsgame.program.activity.ToysDetailActivity
 import android1601.itstep.org.kidsgame.program.data.Gifts
 import butterknife.BindView
 import butterknife.ButterKnife
+import kotlinx.android.synthetic.main.list_item_collection_toy.view.*
 
 /**
  * Created by roman on 14.03.2017.
@@ -24,11 +25,8 @@ import butterknife.ButterKnife
 class ToysCollectionAdapter(private val items: List<Gifts>) : RecyclerView.Adapter<ToysCollectionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        @BindView(R.id.imageToysCollection)
-        internal var imageToysCollection: ImageView? = null
 
         init {
-            ButterKnife.bind(this, itemView)
             itemView.setOnClickListener { v -> ToysDetailActivity.startThisActivity(v.context, items, adapterPosition) }
         }
 
@@ -37,7 +35,7 @@ class ToysCollectionAdapter(private val items: List<Gifts>) : RecyclerView.Adapt
                     .load(Utility.getDrawableResourceIdByName(
                             if (gifts.isUnlock) gifts.resName!! else gifts.silhouetteResName
                     ))
-                    .into(imageToysCollection!!)
+                    .into(itemView.imageToysCollection)
         }
     }
 
@@ -50,16 +48,16 @@ class ToysCollectionAdapter(private val items: List<Gifts>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val gifts = getItem(position) ?: return
 // Определяем содержимое нашего RecyclerView
-        holder.bind(items!![position]/*,listener*/)
+        holder.bind(items[position]/*,listener*/)
 
     }
 
     override fun getItemCount(): Int {
-        return items?.size ?: 0
+        return items.size ?: 0
     }
 
     fun getItem(position: Int): Gifts? {
-        return if (position < 0 || position >= itemCount) null else items!![position]
+        return if (position < 0 || position >= itemCount) null else items[position]
     }
 
 }

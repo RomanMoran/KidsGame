@@ -8,6 +8,7 @@ import android1601.itstep.org.kidsgame.program.adapters.ViewPagerAdapterCollecti
 import android1601.itstep.org.kidsgame.program.data.GiftsSection
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import butterknife.BindView
+import kotlinx.android.synthetic.main.activity_collection.*
 
 /**
  * Created by roman on 14.03.2017.
@@ -15,8 +16,6 @@ import butterknife.BindView
 
 class CollectionActivity : BaseActivity() {
 
-    @BindView(R.id.viewPagerCollection)
-    internal var mViewPagerCollection: ViewPager? = null
     private val mOpenPosition = 0
     private var mViewPagerAdapter: ViewPagerAdapterCollections? = null
     private var sectionsArrayList: List<GiftsSection> = DBHelper.sections
@@ -26,10 +25,10 @@ class CollectionActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewPagerAdapter = ViewPagerAdapterCollections(supportFragmentManager, sectionsArrayList)
-        mViewPagerCollection!!.adapter = mViewPagerAdapter
-        mViewPagerCollection!!.addOnPageChangeListener(mViewPagerAdapter!!)
-        mViewPagerCollection!!.currentItem = mOpenPosition
-        mViewPagerCollection!!.post { mViewPagerAdapter!!.onPageSelected(mOpenPosition) }
+        viewPagerCollection.adapter = mViewPagerAdapter
+        viewPagerCollection.addOnPageChangeListener(mViewPagerAdapter!!)
+        viewPagerCollection.currentItem = mOpenPosition
+        viewPagerCollection.post { mViewPagerAdapter!!.onPageSelected(mOpenPosition) }
     }
 
     companion object {

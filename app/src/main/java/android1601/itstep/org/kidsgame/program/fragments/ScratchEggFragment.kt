@@ -8,9 +8,6 @@ import android.view.Display
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
-
 import android1601.itstep.org.kidsgame.R
 import android1601.itstep.org.kidsgame.program.Utility.Utility
 import android1601.itstep.org.kidsgame.program.activity.BaseActivity
@@ -20,8 +17,8 @@ import android1601.itstep.org.kidsgame.program.activity.PuzzleActivity
 import android1601.itstep.org.kidsgame.program.data.Gifts
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import android1601.itstep.org.kidsgame.scratch_utility.ScratchImageView
-import butterknife.BindView
 import butterknife.OnClick
+import kotlinx.android.synthetic.main.fragment_scratch_image.*
 
 /**
  * Created by roman on 13.03.2017.
@@ -29,12 +26,6 @@ import butterknife.OnClick
 
 class ScratchEggFragment : BaseEggDetailFragment() {
 
-    @BindView(R.id.scratchImage)
-    internal var scratchImageView: ScratchImageView? = null
-    @BindView(R.id.btnYet)
-    internal var btnYet: Button? = null
-    @BindView(R.id.tvCounter)
-    internal var tvCounter: TextView? = null
     private var mAnimation: Animation? = null
     private var mGifts: Gifts? = null
     private var isCarsForPuzzle: Boolean = false
@@ -64,7 +55,7 @@ class ScratchEggFragment : BaseEggDetailFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnYet!!.isEnabled = false
-        imgView!!.visibility = View.INVISIBLE
+        revealedImage!!.visibility = View.INVISIBLE
         imageName!!.visibility = View.INVISIBLE
         if (!isCarsForPuzzle) {
             val howRemainder = 4 - DBHelper.unlockedBySection.size
@@ -132,14 +123,14 @@ class ScratchEggFragment : BaseEggDetailFragment() {
                 if (!mMediaPlayerVoice!!.isPlaying) {
                     mMediaPlayerVoice!!.start()
                     mAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.combo)
-                    imgView!!.startAnimation(mAnimation)
+                    revealedImage!!.startAnimation(mAnimation)
                 } else {
                     startItemSound()
                 }
             }//if
 
-            scratchImageView!!.visibility = View.INVISIBLE
-            imgView!!.visibility = View.VISIBLE
+            scratchImage!!.visibility = View.INVISIBLE
+            revealedImage!!.visibility = View.VISIBLE
             imageName!!.visibility = View.VISIBLE
             if (!isCarsForPuzzle) {
                 val howRemainder = 4 - DBHelper.unlockedBySection.size
@@ -158,9 +149,9 @@ class ScratchEggFragment : BaseEggDetailFragment() {
 
     override fun startItemSound() {
         btnYet!!.isEnabled = true
-        if (scratchImageView!!.mMediaPlayer.isPlaying) {
-            scratchImageView!!.mMediaPlayer.pause()
-            scratchImageView!!.mMediaPlayer.stop()
+        if (scratchImage!!.mMediaPlayer.isPlaying) {
+            scratchImage!!.mMediaPlayer.pause()
+            scratchImage!!.mMediaPlayer.stop()
         }
         if (!isCarsForPuzzle && DBHelper.unlockedBySection.size >= 4) btnYet!!.visibility = View.INVISIBLE
         super.startItemSound()
@@ -168,8 +159,8 @@ class ScratchEggFragment : BaseEggDetailFragment() {
 
     override fun onInitImageAndText(toyImageId: Int, toyTextId: Int) {
         super.onInitImageAndText(toyImageId, toyTextId)
-        scratchImageView!!.setImageResource(toyImageId)
-        scratchImageView!!.setRevealListener(object : ScratchImageView.IRevealListener {
+        scratchImage!!.setImageResource(toyImageId)
+        scratchImage!!.setRevealListener(object : ScratchImageView.IRevealListener {
             override fun onRevealed(iv: ScratchImageView) {
 
             }

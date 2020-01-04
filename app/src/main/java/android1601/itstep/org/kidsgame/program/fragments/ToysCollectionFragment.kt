@@ -12,14 +12,13 @@ import android1601.itstep.org.kidsgame.program.adapters.ToysCollectionAdapter
 import android1601.itstep.org.kidsgame.program.data.Gifts
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import butterknife.BindView
+import kotlinx.android.synthetic.main.fragment_toys_collection.*
 
 /**
  * Created by roman on 14.03.2017.
  */
 
 class ToysCollectionFragment : BaseFragment() {
-    @BindView(R.id.toysCollectionRecyclerView)
-    internal var toysCollectionRecyclerView: RecyclerView? = null
     private var section: Int = 0
 
     private var mToysCollectionAdapter: ToysCollectionAdapter? = null

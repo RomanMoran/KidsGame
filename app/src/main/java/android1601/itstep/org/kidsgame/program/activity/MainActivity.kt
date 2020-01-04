@@ -26,19 +26,12 @@ import android1601.itstep.org.kidsgame.program.data.GiftsSection
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import butterknife.BindView
 import butterknife.OnClick
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), AdapterView.OnItemClickListener {
 
-    @BindView(R.id.rgLanguages)
-    internal var rgLanguages: RadioGroup? = null
-
-    @BindView(R.id.recyclerViewCategory)
-    internal var rvCategory: RecyclerView? = null
     private var categoryAdapter: CategoryAdapter? = null
     private var section: GiftsSection? = null
-
-    @BindView(R.id.switchSounds)
-    internal var switchSounds: Switch? = null
 
     override val layoutResId: Int
         get() = R.layout.activity_main
@@ -53,9 +46,9 @@ class MainActivity : BaseActivity(), AdapterView.OnItemClickListener {
         initSounds(prevMute)
         val sections = DBHelper.sections
         categoryAdapter = CategoryAdapter(baseContext, sections)
-        //rvCategory.setLayoutManager(new GridLayoutManager(getApplicationContext(),DBHelper.getSections().size()));
-        rvCategory!!.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, true)
-        rvCategory!!.adapter = categoryAdapter
+        //recyclerViewCategory.setLayoutManager(new GridLayoutManager(getApplicationContext(),DBHelper.getSections().size()));
+        recyclerViewCategory.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, true)
+        recyclerViewCategory.adapter = categoryAdapter
         categoryAdapter!!.setOnClickListener(this)
     }
 
