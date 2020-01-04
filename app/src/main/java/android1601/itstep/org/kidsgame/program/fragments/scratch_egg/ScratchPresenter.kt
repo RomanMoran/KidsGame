@@ -112,16 +112,16 @@ class ScratchPresenter(private val giftsEntry: Gifts?) : BasePresenterImpl<Scrat
                 giftsEntry.isUnlock = true
                 giftsEntry.save()
             }
+            var withAnimation = false
             if (mMediaPlayerVoice != null) {
                 if (!mMediaPlayerVoice!!.isPlaying) {
                     mMediaPlayerVoice?.start()
-                    //mAnimation = AnimationUtils.loadAnimation(activity, R.anim.combo)
-                    //imgView.startAnimation(mAnimation)
+                    withAnimation = true
                 } else {
                     startItemSound()
                 }
             }
-            view?.revealImage()
+            view?.revealImage(withAnimation)
         }
     }
 

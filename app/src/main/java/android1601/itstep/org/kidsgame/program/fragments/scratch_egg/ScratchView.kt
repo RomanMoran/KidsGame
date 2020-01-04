@@ -4,6 +4,6 @@ import android1601.itstep.org.kidsgame.program.ui.base.BaseView
 
 interface ScratchView : BaseView  {
     fun onInitImageAndText(toyImageId: Int, toyTextId: Int)
-    fun revealImage()
+    fun revealImage(withAnimation : Boolean = false)
     fun startTransformations()
 }

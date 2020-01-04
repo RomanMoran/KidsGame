@@ -97,7 +97,7 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
         })
     }
 
-    override fun revealImage() {
+    override fun revealImage(withAnimation : Boolean) {
         scratchImage.visibility = View.INVISIBLE
         revealedImage.visibility = View.VISIBLE
         imageName.visibility = View.VISIBLE
@@ -110,6 +110,9 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
             }
 
         }
+
+        val mAnimation = AnimationUtils.loadAnimation(activity, R.anim.combo)
+        revealedImage.startAnimation(mAnimation)
         btnYet.isEnabled = true
         tvCounter.visibility = if (carsForPuzzle) View.INVISIBLE else View.VISIBLE
     }
