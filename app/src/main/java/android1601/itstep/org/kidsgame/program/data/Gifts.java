@@ -101,11 +101,11 @@ public class Gifts extends BaseModel implements Parcelable {
     }
 
     public POSITION_TYPE getPositionEnum(){
-        return POSITION_TYPE.Companion.fromPositions(positionType);
+        return POSITION_TYPE.fromPositions(positionType);
     }
 
     public SECTIONS_TYPE getSectionType(){
-        return SECTIONS_TYPE.Companion.sections_type(objectSection_id);
+        return SECTIONS_TYPE.sections_type(objectSection_id);
     }
 
     public void setObjectSection_id(int objectSection_id) {
@@ -127,19 +127,19 @@ public class Gifts extends BaseModel implements Parcelable {
 
 
     public int getImageResId(){
-        return Utility.Companion.getDrawableResourceIdByName(resName);
+        return Utility.getDrawableResourceIdByName(resName);
     }
     public String getSilhouetteResName(){
         return resName+"_inactive";
     }
 
     public int getSilhouetteResId(){
-        return Utility.Companion.getDrawableResourceIdByName(getSilhouetteResName());
+        return Utility.getDrawableResourceIdByName(getSilhouetteResName());
     }
 
     public int getTextId(){
         if (nameResId==0)
-            nameResId = resName != null? Utility.Companion.getStringResourceIdByName(resName) : 0;
+            nameResId = resName != null? Utility.getStringResourceIdByName(resName) : 0;
         return nameResId;
     }
 
@@ -158,16 +158,16 @@ public class Gifts extends BaseModel implements Parcelable {
     }
 
     public int getVoiceRawId(){
-        Context context = KidsApplication.Companion.getInstance();
+        Context context = KidsApplication.getInstance();
         if (voiceResId == 0)
-            voiceResId = resName!=null?Utility.Companion.getRawIdByName(resName+"_"+context.getString(R.string.sound_locale)):0;
+            voiceResId = resName!=null?Utility.getRawIdByName(resName+"_"+context.getString(R.string.sound_locale)):0;
         return voiceResId;
     }
 
     public int getSoundRawId(){
-        Context context = KidsApplication.Companion.getInstance();
+        Context context = KidsApplication.getInstance();
         if (soundResId == 0)
-            soundResId = resName!=null?Utility.Companion.getRawIdByName(resName+"_sound"):0;
+            soundResId = resName!=null?Utility.getRawIdByName(resName+"_sound"):0;
         return soundResId;
     }
 
