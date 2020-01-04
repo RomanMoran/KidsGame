@@ -310,7 +310,7 @@ class PuzzleFragment : BaseFragment() {
                 showWinTextAndSound()
                 mMediaPlayerSoundWin!!.setOnCompletionListener {
                     val puzzleActivity = getActivity() as PuzzleActivity?
-                    puzzleActivity!!.showPuzzleFragment(DBHelper.randomFourItems)
+                    puzzleActivity!!.showPuzzleFragment(DBHelper.getRandomFourItems())
                 }
             }
 

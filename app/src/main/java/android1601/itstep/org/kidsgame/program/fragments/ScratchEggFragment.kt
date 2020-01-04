@@ -58,7 +58,7 @@ class ScratchEggFragment : BaseEggDetailFragment() {
         revealedImage!!.visibility = View.INVISIBLE
         imageName!!.visibility = View.INVISIBLE
         if (!isCarsForPuzzle) {
-            val howRemainder = 4 - DBHelper.unlockedBySection.size
+            val howRemainder = 4 - DBHelper.getUnlockedBySection().size
             if (howRemainder > 0) {
                 tvCounter!!.text = context!!.getString(R.string.lacking_of_items) + " " + howRemainder
                 tvCounter!!.setTypeface(Utility.typeface)
@@ -72,7 +72,7 @@ class ScratchEggFragment : BaseEggDetailFragment() {
         if (mMediaPlayerSound != null) {
             // В случае когда есть звук сопровождения
             mMediaPlayerSound!!.setOnCompletionListener {
-                if (!mMediaPlayerSound!!.isPlaying && DBHelper.unlockedBySection.size >= 4) {
+                if (!mMediaPlayerSound!!.isPlaying && DBHelper.getUnlockedBySection().size >= 4) {
                     startTransformations()
                 }
             }
@@ -133,10 +133,10 @@ class ScratchEggFragment : BaseEggDetailFragment() {
             revealedImage!!.visibility = View.VISIBLE
             imageName!!.visibility = View.VISIBLE
             if (!isCarsForPuzzle) {
-                val howRemainder = 4 - DBHelper.unlockedBySection.size
+                val howRemainder = 4 - DBHelper.getUnlockedBySection().size
                 tvCounter!!.text = if (howRemainder == 0) null else context!!.getString(R.string.lacking_of_items) + " " + howRemainder
 
-                if (DBHelper.unlockedBySection.size >= 4) {
+                if (DBHelper.getUnlockedBySection().size >= 4) {
                     showWinTextSoundButton()
                 }
 
@@ -153,7 +153,7 @@ class ScratchEggFragment : BaseEggDetailFragment() {
             scratchImage!!.mMediaPlayer.pause()
             scratchImage!!.mMediaPlayer.stop()
         }
-        if (!isCarsForPuzzle && DBHelper.unlockedBySection.size >= 4) btnYet!!.visibility = View.INVISIBLE
+        if (!isCarsForPuzzle && DBHelper.getUnlockedBySection().size >= 4) btnYet!!.visibility = View.INVISIBLE
         super.startItemSound()
     }
 
@@ -179,7 +179,7 @@ class ScratchEggFragment : BaseEggDetailFragment() {
         // isCarsForPuzzle - флаг, откуда вызван метод :    true - из MainActivity
         //                                                  false - при нажатии на PuzzleActivity с учетом нехватки автомобилей
 
-        if (DBHelper.unlockedBySection.size >= 4 && flagFromPuzzles) {
+        if (DBHelper.getUnlockedBySection().size >= 4 && flagFromPuzzles) {
             BaseActivity.newInstance(requireContext(), PuzzleActivity::class.java)
             activity.finish()
         } else

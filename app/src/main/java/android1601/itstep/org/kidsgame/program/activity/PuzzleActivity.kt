@@ -14,7 +14,7 @@ class PuzzleActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val giftsSection = DBHelper.randomFourItems
+        val giftsSection = DBHelper.getRandomFourItems()
         showPuzzleFragment(giftsSection)
     }
 

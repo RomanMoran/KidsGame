@@ -44,7 +44,7 @@ class MainActivity : BaseActivity(), AdapterView.OnItemClickListener {
 
         val prevMute = intent.getBooleanExtra(MUTE_SOUND, true)
         initSounds(prevMute)
-        val sections = DBHelper.sections
+        val sections = DBHelper.getSections()
         categoryAdapter = CategoryAdapter(baseContext, sections)
         //recyclerViewCategory.setLayoutManager(new GridLayoutManager(getApplicationContext(),DBHelper.getSections().size()));
         recyclerViewCategory.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, true)
@@ -65,7 +65,7 @@ class MainActivity : BaseActivity(), AdapterView.OnItemClickListener {
 
     @OnClick(R.id.openPuzzle)
     internal fun openPuzzle(view: View) {
-        if (DBHelper.unlockedBySection.size >= 4) {
+        if (DBHelper.getUnlockedBySection().size >= 4) {
             BaseActivity.newInstance(this, PuzzleActivity::class.java)
         } else {
             BaseActivity.newInstance(this, KinderActivity::class.java, false, false)

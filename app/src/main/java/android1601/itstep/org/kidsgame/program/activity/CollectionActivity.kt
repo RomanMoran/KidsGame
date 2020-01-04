@@ -18,7 +18,7 @@ class CollectionActivity : BaseActivity() {
 
     private val mOpenPosition = 0
     private var mViewPagerAdapter: ViewPagerAdapterCollections? = null
-    private var sectionsArrayList: List<GiftsSection> = DBHelper.sections
+    private var sectionsArrayList: List<GiftsSection> = DBHelper.getSections()
 
     override val layoutResId: Int get() = R.layout.activity_collection
 

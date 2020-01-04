@@ -41,7 +41,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showScratchEggFragment(carsForPuzzle: Boolean) {
-        val giftsList = if (carsForPuzzle) DBHelper.getall() else DBHelper.locked
+        val giftsList = if (carsForPuzzle) DBHelper.getall() else DBHelper.getLocked()
         val gifts = giftsList[Random().nextInt(giftsList.size)]
         showScratchEggFragment(gifts, carsForPuzzle)
     }
