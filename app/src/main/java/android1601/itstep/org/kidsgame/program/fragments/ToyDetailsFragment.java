@@ -1,7 +1,7 @@
 package android1601.itstep.org.kidsgame.program.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;

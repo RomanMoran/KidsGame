@@ -1,16 +1,14 @@
 package android1601.itstep.org.kidsgame.program.adapters;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android1601.itstep.org.kidsgame.program.data.Gifts;
 import android1601.itstep.org.kidsgame.program.data.GiftsSection;
-import android1601.itstep.org.kidsgame.program.enums.SECTIONS_TYPE;
 import android1601.itstep.org.kidsgame.program.fragments.ToysCollectionFragment;
 
 /**

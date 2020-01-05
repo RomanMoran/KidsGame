@@ -1,10 +1,9 @@
 package android1601.itstep.org.kidsgame.program.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,17 +11,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import android1601.itstep.org.kidsgame.R;
 import android1601.itstep.org.kidsgame.program.Utility.Utility;
-import android1601.itstep.org.kidsgame.program.data.Gifts;
 import android1601.itstep.org.kidsgame.program.data.GiftsSection;
 import butterknife.BindView;
 import butterknife.ButterKnife;

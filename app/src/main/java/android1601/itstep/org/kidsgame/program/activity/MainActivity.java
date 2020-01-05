@@ -3,11 +3,11 @@ package android1601.itstep.org.kidsgame.program.activity;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IdRes;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;

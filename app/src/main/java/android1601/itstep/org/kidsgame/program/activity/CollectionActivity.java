@@ -1,7 +1,7 @@
 package android1601.itstep.org.kidsgame.program.activity;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.List;
 

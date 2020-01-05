@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:visibility="invisible"/>
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
@@ -36,7 +36,7 @@
                 android:paddingRight="@dimen/default_padding"
                 />
         </FrameLayout>
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
     <LinearLayout
         android:id="@+id/llBtnAndText"
