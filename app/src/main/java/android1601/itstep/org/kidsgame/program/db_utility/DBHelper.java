@@ -37,7 +37,7 @@ public class DBHelper{
 
 
     public static List<Gifts> getall(){
-        int section = MainActivity.positionCategory;
+        int section = 0;
         return SQLite.select().
                 from(Gifts.class).
                 where(Gifts_Table.objectSection_id.eq(section)).
@@ -82,7 +82,7 @@ public class DBHelper{
 
 
     public static List<Gifts> getLocked(){
-        int section = MainActivity.positionCategory;
+        int section = 0;
         return SQLite.select().
                 from(Gifts.class).
                 where(Gifts_Table.unlock.eq(false)).and(Gifts_Table.objectSection_id.eq(section))

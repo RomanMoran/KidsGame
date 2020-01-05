@@ -50,7 +50,7 @@ public class GiftsSection extends BaseModel {
 
     public String getTitleLang(int sections_type){
         if(titleResNameLang==null){
-            Context context= KidsApplication.getInstance();
+            Context context= KidsApplication.Companion.getInstance();
             switch (sections_type) {
                 case 2:
                     return context.getString(R.string.furniture);
