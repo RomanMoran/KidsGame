@@ -17,7 +17,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected lateinit var progressBar: ProgressBar
     val navigator by lazy { ActivityViewNavigator(this) }
     private var menu: Menu? = null
-    private val preferences by PreferencesProvider()
+    val preferences by PreferencesProvider()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
