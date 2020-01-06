@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/white"
+    android:background="@drawable/bg_main"
     android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCategory"
         android:orientation="vertical"
         android:layout_width="wrap_content"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_padding">
     </androidx.recyclerview.widget.RecyclerView>
@@ -23,6 +24,7 @@
         android:padding="@dimen/default_padding"
         android:text="@string/open_eggs"
         />
+
     <Button
         android:id="@+id/openPuzzle"
         android:layout_height="wrap_content"

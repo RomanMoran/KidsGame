@@ -2,8 +2,11 @@ package android1601.itstep.org.kidsgame.program.ui.navigation
 
 import android.app.Activity
 import android.content.Intent
+import android1601.itstep.org.kidsgame.R
+import android1601.itstep.org.kidsgame.program.ext.tryTo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 import java.lang.ref.WeakReference
 
 abstract class AbstractViewNavigator : ViewNavigator {
@@ -28,6 +31,27 @@ abstract class AbstractViewNavigator : ViewNavigator {
             activity?.startActivity(intent)
         }
     }
+
+    private fun Fragment.add(toBackStack: Boolean = true) = addOrReplace(toBackStack, true)
+    private fun Fragment.replace(toBackStack: Boolean = false) = addOrReplace(toBackStack, false)
+
+    private fun Fragment.addOrReplace(toBackStack: Boolean, add: Boolean) = tryTo {
+        val fragmentManager = fragmentActivity?.supportFragmentManager ?: return
+        val transaction = fragmentManager.beginTransaction()
+        transaction.toBackStack(toBackStack).addOrReplace(this, add).commit()
+    }
+
+    private fun FragmentTransaction.toBackStack(toBackStack: Boolean) = if (toBackStack) {
+        addToBackStack(null)
+        setCustomAnimations(R.anim.from_right, R.anim.to_left, R.anim.from_left, R.anim.to_right)
+    } else {
+        setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+    }
+
+    private fun FragmentTransaction.addOrReplace(fragment: Fragment, add: Boolean) =
+            if (add) add(R.id.container, fragment) else replace(R.id.container, fragment)
+
+
 }
 
 class ActivityViewNavigator(fragmentActivity: FragmentActivity) : AbstractViewNavigator() {
