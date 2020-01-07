@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import java.util.Random;
 
 import android1601.itstep.org.kidsgame.program.KidsApplication;
+import android1601.itstep.org.kidsgame.program.KidsKotlinApplication;
 
 /**
  * Created by roman on 14.03.2017.
@@ -25,7 +26,7 @@ public class Utility {
 
     public static int getIdResourceByNameAndType(@NonNull String resName, String resType) {
         try {
-            Context context= KidsApplication.getInstance();
+            Context context= KidsKotlinApplication.Companion.getInstance();
             String packageName = context.getPackageName();
             int resId = context.getResources().getIdentifier(resName, resType, packageName);
             return resId;// getString(resId);
@@ -38,7 +39,7 @@ public class Utility {
     }
 
     public static String getStringResourseById(int id){
-        Context context = KidsApplication.getInstance();
+        Context context = KidsKotlinApplication.Companion.getInstance();
         String name = context.getResources().getResourceName(id);
         return name;
     }
@@ -49,7 +50,7 @@ public class Utility {
 
 
     public static Point getDisplaySize() {
-        Context context= KidsApplication.getInstance();
+        Context context= KidsKotlinApplication.Companion.getInstance();
         Point point = null;
         if (Build.VERSION.SDK_INT >= 13) {
             point = getDisplaySizeAFTER13(context);
@@ -85,7 +86,7 @@ public class Utility {
     }
 
     public static Typeface getTypeface(){
-        Context context= KidsApplication.getInstance();
+        Context context= KidsKotlinApplication.Companion.getInstance();
         String custom_font_en = "font/comic.ttf";
         String custom_font_ru = "font/sumkin_typeface.otf";
         Typeface CF = Typeface.createFromAsset(context.getAssets(), LocaleHelper.getLanguage()=="en"?custom_font_en:custom_font_ru);

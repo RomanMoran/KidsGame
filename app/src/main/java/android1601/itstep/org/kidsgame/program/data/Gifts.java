@@ -11,6 +11,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import android1601.itstep.org.kidsgame.R;
 import android1601.itstep.org.kidsgame.program.KidsApplication;
+import android1601.itstep.org.kidsgame.program.KidsKotlinApplication;
 import android1601.itstep.org.kidsgame.program.Utility.Utility;
 import android1601.itstep.org.kidsgame.program.db_utility.AppDatabase;
 import android1601.itstep.org.kidsgame.program.enums.POSITION_TYPE;
@@ -158,14 +159,14 @@ public class Gifts extends BaseModel implements Parcelable {
     }
 
     public int getVoiceRawId(){
-        Context context = KidsApplication.getInstance();
+        Context context = KidsKotlinApplication.Companion.getInstance();
         if (voiceResId == 0)
             voiceResId = resName!=null?Utility.getRawIdByName(resName+"_"+context.getString(R.string.sound_locale)):0;
         return voiceResId;
     }
 
     public int getSoundRawId(){
-        Context context = KidsApplication.getInstance();
+        Context context = KidsKotlinApplication.Companion.getInstance();
         if (soundResId == 0)
             soundResId = resName!=null?Utility.getRawIdByName(resName+"_sound"):0;
         return soundResId;

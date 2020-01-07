@@ -3,6 +3,11 @@ package android1601.itstep.org.kidsgame.program.ui.navigation
 import android.app.Activity
 import android.content.Intent
 import android1601.itstep.org.kidsgame.R
+import android1601.itstep.org.kidsgame.program.activity.CollectionActivity
+import android1601.itstep.org.kidsgame.program.activity.KinderActivity
+import android1601.itstep.org.kidsgame.program.activity.MainActivity
+import android1601.itstep.org.kidsgame.program.activity.PuzzleActivity
+import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import android1601.itstep.org.kidsgame.program.ext.tryTo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -30,6 +35,26 @@ abstract class AbstractViewNavigator : ViewNavigator {
         fragmentActivity.let { activity ->
             activity?.startActivity(intent)
         }
+    }
+
+    override fun showKinderView() {
+        startActivity(KinderActivity::class.java)
+    }
+
+    override fun showOpenPuzzlesView() {
+        if (DBHelper.getUnlockedBySection().size >= 4) {
+            startActivity(PuzzleActivity::class.java)
+        } else {
+            startActivity(Intent(fragmentActivity, KinderActivity::class.java).apply {
+                putExtra(MainActivity.CARS_FOR_PUZZLE, false)
+            })
+        }
+    }
+
+    override fun showCollectionView() {
+        startActivity(Intent(fragmentActivity, CollectionActivity::class.java).apply {
+            putExtra(MainActivity.CARS_FOR_PUZZLE, true)
+        })
     }
 
     private fun Fragment.add(toBackStack: Boolean = true) = addOrReplace(toBackStack, true)

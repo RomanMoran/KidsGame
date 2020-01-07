@@ -30,6 +30,7 @@ task clean(type: Delete) {
 ext {
     dbflow_version = "4.0.0-beta5"
     versionRetrofit = "2.3.0"
+    locale_changer_version = "0.9.2"
 
     butterknifeVersion = '9.0.0'
 }

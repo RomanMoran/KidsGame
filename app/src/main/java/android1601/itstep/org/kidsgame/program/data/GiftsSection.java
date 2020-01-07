@@ -11,6 +11,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import android1601.itstep.org.kidsgame.R;
 import android1601.itstep.org.kidsgame.program.KidsApplication;
+import android1601.itstep.org.kidsgame.program.KidsKotlinApplication;
 import android1601.itstep.org.kidsgame.program.Utility.Utility;
 import android1601.itstep.org.kidsgame.program.db_utility.AppDatabase;
 import android1601.itstep.org.kidsgame.program.enums.SECTIONS_TYPE;
@@ -50,7 +51,7 @@ public class GiftsSection extends BaseModel {
 
     public String getTitleLang(int sections_type){
         if(titleResNameLang==null){
-            Context context= KidsApplication.getInstance();
+            Context context= KidsKotlinApplication.Companion.getInstance();
             switch (sections_type) {
                 case 2:
                     return context.getString(R.string.furniture);

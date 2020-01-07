@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import java.util.Locale;
 
 import android1601.itstep.org.kidsgame.program.KidsApplication;
+import android1601.itstep.org.kidsgame.program.KidsKotlinApplication;
 
 public class PreferencesData {
     private static final String TAG = PreferencesData.class.getName();
@@ -73,7 +74,7 @@ public class PreferencesData {
     }
 
     private static Context getApplicationContext() {
-        return KidsApplication.getInstance();
+        return KidsKotlinApplication.Companion.getInstance();
     }
 
 }
