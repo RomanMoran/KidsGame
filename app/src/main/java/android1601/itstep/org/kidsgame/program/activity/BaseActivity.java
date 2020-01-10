@@ -72,19 +72,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void showScratchEggFragment(Gifts gifts, boolean carsForPuzzle){
         String tag = ScratchEggFragment.TAG;
         ScratchEggFragment fragment = ScratchEggFragment.newInstance(gifts,carsForPuzzle);
-        showFragment(R.id.fragmentConatiner,fragment,tag,false);
+        showFragment(R.id.container,fragment,tag,false);
     }
 
     public void showToysCollectionFragment(int section/*,ArrayList<Gifts> giftsArrayList*/){
         String tag = ToysCollectionFragment.TAG;
         ToysCollectionFragment fragment = ToysCollectionFragment.newInstance(section/*,giftsArrayList*/);
-        showFragment(R.id.fragmentConatiner,fragment,tag,false);
+        showFragment(R.id.container,fragment,tag,false);
     }
 
     public void showPuzzleFragment(List<Gifts> toyList){
         String tag = PuzzleActivity.TAG;
         PuzzleFragment fragment = PuzzleFragment.newInstance(toyList);
-        showFragment(R.id.fragmentConatiner,fragment,tag,false);
+        showFragment(R.id.container,fragment,tag,false);
 
     }
 
