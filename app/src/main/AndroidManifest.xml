@@ -46,6 +46,12 @@
             android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
             android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:name=".program.activity.kinder.KinderKotlinActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".program.activity.CollectionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"

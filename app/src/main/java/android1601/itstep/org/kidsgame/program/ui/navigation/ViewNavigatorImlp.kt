@@ -7,12 +7,17 @@ import android1601.itstep.org.kidsgame.program.activity.CollectionActivity
 import android1601.itstep.org.kidsgame.program.activity.KinderActivity
 import android1601.itstep.org.kidsgame.program.activity.MainActivity
 import android1601.itstep.org.kidsgame.program.activity.PuzzleActivity
+import android1601.itstep.org.kidsgame.program.activity.kinder.KinderKotlinActivity
+import android1601.itstep.org.kidsgame.program.data.Gifts
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import android1601.itstep.org.kidsgame.program.ext.tryTo
+import android1601.itstep.org.kidsgame.program.fragments.ScratchEggFragment
+import android1601.itstep.org.kidsgame.program.fragments.scratch_egg.ScratchEggKotlinFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import java.lang.ref.WeakReference
+import java.util.*
 
 abstract class AbstractViewNavigator : ViewNavigator {
 
@@ -38,17 +43,33 @@ abstract class AbstractViewNavigator : ViewNavigator {
     }
 
     override fun showKinderView() {
-        startActivity(KinderActivity::class.java)
+        startActivity(KinderKotlinActivity::class.java)
     }
 
-    override fun showOpenPuzzlesView() {
+
+    override fun showScratchEggFragment(carsForPuzzle: Boolean) {
+        val giftsList = if (carsForPuzzle) DBHelper.getall() else DBHelper.getLocked()
+        val gifts = giftsList[Random().nextInt(giftsList.size)]
+        showScratchEggKotlinFragment(gifts, carsForPuzzle)
+    }
+
+    fun showScratchEggFragment(gifts: Gifts, carsForPuzzle: Boolean) {
+        ScratchEggFragment.newInstance(gifts, carsForPuzzle).replace()
+    }
+
+    fun showScratchEggKotlinFragment(gifts: Gifts, carsForPuzzle: Boolean) {
+        ScratchEggKotlinFragment.newInstance(gifts, carsForPuzzle).replace()
+    }
+
+    override fun showOpenPuzzlesView(clearBackStack: Boolean) {
         if (DBHelper.getUnlockedBySection().size >= 4) {
             startActivity(PuzzleActivity::class.java)
         } else {
-            startActivity(Intent(fragmentActivity, KinderActivity::class.java).apply {
+            startActivity(Intent(fragmentActivity, KinderKotlinActivity::class.java).apply {
                 putExtra(MainActivity.CARS_FOR_PUZZLE, false)
             })
         }
+        if (clearBackStack) fragmentActivity?.finishAffinity()
     }
 
     override fun showCollectionView() {

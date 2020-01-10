@@ -8,6 +8,7 @@ import android1601.itstep.org.kidsgame.program.ext.tryOrNull
 import android1601.itstep.org.kidsgame.program.ui.navigation.ViewNavigator
 import okhttp3.ResponseBody
 import retrofit2.HttpException
+import java.lang.ref.WeakReference
 import java.net.SocketTimeoutException
 
 abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
@@ -15,9 +16,30 @@ abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
 
     protected val localStorage by PreferencesProvider()
     protected val mapper by ObjectMapperProvider()
+    final override val view get() = viewReference?.get()
+    private var viewReference: WeakReference<V>? = null
 
     private lateinit var navigator: ViewNavigator
 
+
+    final override fun attachView(view: V) {
+        viewReference?.clear()
+        viewReference = WeakReference(view)
+        onAttachView()
+    }
+
+    override fun onPause() {
+
+    }
+
+    final override fun detachView() {
+        onDetachView()
+        viewReference?.clear()
+        viewReference = null
+    }
+
+    protected open fun onAttachView() = Unit
+    protected open fun onDetachView() = Unit
 
     override fun setNavigator(navigator: ViewNavigator) {
         this.navigator = navigator

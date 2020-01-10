@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ProgressBar
+import android1601.itstep.org.kidsgame.program.ext.ui.toast
 import android1601.itstep.org.kidsgame.program.ui.navigation.FragmentViewNavigator
 import androidx.fragment.app.Fragment
 

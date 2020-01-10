@@ -8,7 +8,8 @@ interface ViewNavigator {
     fun startActivity(intent: Intent)
     fun startActivity(activityClass: Class<out Activity>, clearBackStack: Boolean = false)
     fun showKinderView()
-    fun showOpenPuzzlesView()
+    fun showOpenPuzzlesView(clearBackStack: Boolean = false)
     fun showCollectionView()
+    fun showScratchEggFragment(carsForPuzzle: Boolean)
 
 }

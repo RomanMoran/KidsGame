@@ -14,8 +14,18 @@ abstract class BaseMvpActivity<P : BasePresenter<V>, V : BaseView> : BaseActivit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.setNavigator(navigator)
+        presenter.attachView(mvpView)
     }
 
+    override fun onDestroy() {
+        presenter.detachView()
+        super.onDestroy()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.onPause()
+    }
 
     override fun closeKeyboard() {
 
