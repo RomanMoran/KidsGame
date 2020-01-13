@@ -11,5 +11,7 @@ interface ViewNavigator {
     fun showOpenPuzzlesView(clearBackStack: Boolean = false)
     fun showCollectionView()
     fun showScratchEggFragment(carsForPuzzle: Boolean)
+    fun showPuzzleFragment()
+    fun showOpenPuzzlesKotlinView(clearBackStack: Boolean = false)
 
 }

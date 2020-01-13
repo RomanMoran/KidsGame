@@ -9,8 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android1601.itstep.org.kidsgame.R
 import android1601.itstep.org.kidsgame.program.Utility.Utility
-import android1601.itstep.org.kidsgame.program.activity.BaseActivity
-import android1601.itstep.org.kidsgame.program.activity.PuzzleActivity
 import android1601.itstep.org.kidsgame.program.data.Gifts
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import android1601.itstep.org.kidsgame.program.ext.fromJson
@@ -97,7 +95,7 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
         })
     }
 
-    override fun revealImage(withAnimation : Boolean) {
+    override fun revealImage(withAnimation: Boolean) {
         scratchImage.visibility = View.INVISIBLE
         revealedImage.visibility = View.VISIBLE
         imageName.visibility = View.VISIBLE
@@ -149,8 +147,7 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
         //                                                  false - при нажатии на PuzzleActivity с учетом нехватки автомобилей
 
         if (DBHelper.getUnlockedBySection().size >= 4 && flagFromPuzzles) {
-            BaseActivity.newInstance(context, PuzzleActivity::class.java)
-            navigator.showOpenPuzzlesView(true)
+            navigator.showOpenPuzzlesKotlinView(true)
         } else {
             // todo recreate this fragment
             navigator.showScratchEggFragment(carsForPuzzle)

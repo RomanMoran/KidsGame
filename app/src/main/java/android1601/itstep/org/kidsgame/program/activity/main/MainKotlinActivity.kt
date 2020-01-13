@@ -16,7 +16,7 @@ class MainKotlinActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         openEggs.setOnClickListener { navigator.showKinderView() }
-        openPuzzle.setOnClickListener { navigator.showOpenPuzzlesView() }
+        openPuzzle.setOnClickListener { navigator.showOpenPuzzlesKotlinView() }
         openCollection.setOnClickListener { navigator.showCollectionView() }
         aboutUs.setOnClickListener { }
         rgLanguages.setOnCheckedChangeListener { _, checkedId ->

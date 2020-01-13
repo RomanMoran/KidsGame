@@ -64,6 +64,12 @@
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
+            android:name=".program.activity.puzzle.PuzzleKotlinActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
             android:name=".program.activity.ToysDetailActivity"
             android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
             android:screenOrientation="sensorPortrait"
