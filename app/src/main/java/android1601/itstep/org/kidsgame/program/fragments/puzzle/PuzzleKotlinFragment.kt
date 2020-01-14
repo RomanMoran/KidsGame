@@ -144,13 +144,13 @@ class PuzzleKotlinFragment : BaseMvpFragment<PuzzlePresenter, PuzzleView>(), Puz
         }
     }
 
-    private fun whatImage(view: View, event: MotionEvent) {
+    private fun whatImage(targetView: View, event: MotionEvent) {
         for (i in imgLeftCarsList.indices) {
-            val imageView = view.findViewById<ImageView>(imgLeftCarsList[i])
+            val imageView = view?.findViewById<ImageView>(imgLeftCarsList[i])
             if (imageView != null){
-                if (imageView == view) {
-                    draggableImage = view.findViewById(imgLeftCarsList[i])
-                    targetEmptyImage = view.findViewById(imgEmptyCarsList[i])
+                if (imageView == targetView) {
+                    draggableImage = view?.findViewById(imgLeftCarsList[i])
+                    targetEmptyImage = view?.findViewById(imgEmptyCarsList[i])
 
                     presenter.startLoadResIdSound()
                     // перемещаемое изображение на передний план
