@@ -10,7 +10,6 @@ import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import android1601.itstep.org.kidsgame.R;
-import android1601.itstep.org.kidsgame.program.KidsApplication;
 import android1601.itstep.org.kidsgame.program.KidsKotlinApplication;
 import android1601.itstep.org.kidsgame.program.Utility.Utility;
 import android1601.itstep.org.kidsgame.program.db_utility.AppDatabase;

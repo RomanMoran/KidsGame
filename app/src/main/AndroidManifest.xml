@@ -30,23 +30,6 @@
             </intent-filter>
         </activity>
 
-        <!--<activity android:name=".program.activity.main.MainKotlinActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
-            android:screenOrientation="sensorPortrait"
-            android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>-->
-
-        <activity
-            android:name=".program.activity.KinderActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
-            android:screenOrientation="sensorPortrait"
-            android:windowSoftInputMode="adjustPan"/>
-
         <activity
             android:name=".program.activity.kinder.KinderKotlinActivity"
             android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
@@ -57,12 +40,7 @@
             android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
             android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".program.activity.PuzzleActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"
-            android:screenOrientation="sensorLandscape"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+
         <activity
             android:name=".program.activity.puzzle.PuzzleKotlinActivity"
             android:configChanges="keyboardHidden|screenSize|orientation|layoutDirection|locale"

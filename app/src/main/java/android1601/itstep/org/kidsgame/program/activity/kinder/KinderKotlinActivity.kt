@@ -2,8 +2,8 @@ package android1601.itstep.org.kidsgame.program.activity.kinder
 
 import android.os.Bundle
 import android1601.itstep.org.kidsgame.R
-import android1601.itstep.org.kidsgame.program.activity.MainActivity
 import android1601.itstep.org.kidsgame.program.ui.base.BaseActivity
+import android1601.itstep.org.kidsgame.program.ui.navigation.CARS_FOR_PUZZLE
 
 class KinderKotlinActivity : BaseActivity(){
 
@@ -11,7 +11,7 @@ class KinderKotlinActivity : BaseActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val carsForPuzzle = intent.getBooleanExtra(MainActivity.CARS_FOR_PUZZLE, true)
+        val carsForPuzzle = intent.getBooleanExtra(CARS_FOR_PUZZLE, true)
         navigator.showScratchEggFragment(carsForPuzzle)
     }
 

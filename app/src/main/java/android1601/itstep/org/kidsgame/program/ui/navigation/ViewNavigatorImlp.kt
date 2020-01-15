@@ -4,15 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android1601.itstep.org.kidsgame.R
 import android1601.itstep.org.kidsgame.program.activity.CollectionActivity
-import android1601.itstep.org.kidsgame.program.activity.KinderActivity
-import android1601.itstep.org.kidsgame.program.activity.MainActivity
-import android1601.itstep.org.kidsgame.program.activity.PuzzleActivity
 import android1601.itstep.org.kidsgame.program.activity.kinder.KinderKotlinActivity
 import android1601.itstep.org.kidsgame.program.activity.puzzle.PuzzleKotlinActivity
 import android1601.itstep.org.kidsgame.program.data.Gifts
 import android1601.itstep.org.kidsgame.program.db_utility.DBHelper
 import android1601.itstep.org.kidsgame.program.ext.tryTo
-import android1601.itstep.org.kidsgame.program.fragments.ScratchEggFragment
 import android1601.itstep.org.kidsgame.program.fragments.puzzle.PuzzleKotlinFragment
 import android1601.itstep.org.kidsgame.program.fragments.scratch_egg.ScratchEggKotlinFragment
 import androidx.fragment.app.Fragment
@@ -21,10 +17,13 @@ import androidx.fragment.app.FragmentTransaction
 import java.lang.ref.WeakReference
 import java.util.*
 
+const val CARS_FOR_PUZZLE = "CARS_FOR_PUZZLE"
+
 abstract class AbstractViewNavigator : ViewNavigator {
 
     protected abstract val fragmentActivity: FragmentActivity?
     open val fragment: Fragment? = null
+
 
     override fun clearBackStack() {
         val fragmentManager = fragmentActivity?.supportFragmentManager ?: return
@@ -66,10 +65,10 @@ abstract class AbstractViewNavigator : ViewNavigator {
 
     override fun showOpenPuzzlesView(clearBackStack: Boolean) {
         if (DBHelper.getUnlockedBySection().size >= 4) {
-            startActivity(PuzzleActivity::class.java)
+            startActivity(PuzzleKotlinActivity::class.java)
         } else {
             startActivity(Intent(fragmentActivity, KinderKotlinActivity::class.java).apply {
-                putExtra(MainActivity.CARS_FOR_PUZZLE, false)
+                putExtra(CARS_FOR_PUZZLE, false)
             })
         }
         if (clearBackStack) fragmentActivity?.finishAffinity()
@@ -80,7 +79,7 @@ abstract class AbstractViewNavigator : ViewNavigator {
             startActivity(PuzzleKotlinActivity::class.java)
         } else {
             startActivity(Intent(fragmentActivity, KinderKotlinActivity::class.java).apply {
-                putExtra(MainActivity.CARS_FOR_PUZZLE, false)
+                putExtra(CARS_FOR_PUZZLE, false)
             })
         }
         if (clearBackStack) fragmentActivity?.finishAffinity()
@@ -88,7 +87,7 @@ abstract class AbstractViewNavigator : ViewNavigator {
 
     override fun showCollectionView() {
         startActivity(Intent(fragmentActivity, CollectionActivity::class.java).apply {
-            putExtra(MainActivity.CARS_FOR_PUZZLE, true)
+            putExtra(CARS_FOR_PUZZLE, true)
         })
     }
 
