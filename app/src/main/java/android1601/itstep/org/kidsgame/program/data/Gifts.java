@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.franmontiel.localechanger.LocaleChanger;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
@@ -159,8 +160,9 @@ public class Gifts extends BaseModel implements Parcelable {
 
     public int getVoiceRawId(){
         Context context = KidsKotlinApplication.Companion.getInstance();
+        String locale = LocaleChanger.getLocale().getLanguage();
         if (voiceResId == 0)
-            voiceResId = resName!=null?Utility.getRawIdByName(resName+"_"+context.getString(R.string.sound_locale)):0;
+            voiceResId = resName!=null?Utility.getRawIdByName(resName+"_"+locale):0;
         return voiceResId;
     }
 

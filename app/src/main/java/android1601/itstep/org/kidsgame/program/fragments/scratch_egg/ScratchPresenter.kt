@@ -48,11 +48,9 @@ class ScratchPresenter(private val giftsEntry: Gifts?) : BasePresenterImpl<Scrat
             if (giftsEntry != null) {
                 val voiceRawId = giftsEntry.voiceRawId
                 if (voiceRawId != 0)
-                    if (context != null)
                         mMediaPlayerVoice = MediaPlayer.create(context, voiceRawId)
                 val soundRawId = giftsEntry.soundRawId
                 if (soundRawId != 0)
-                    if (context != null)
                         mMediaPlayerSound = MediaPlayer.create(context, soundRawId)
 
             }
