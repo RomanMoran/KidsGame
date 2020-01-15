@@ -3,6 +3,7 @@ package android1601.itstep.org.kidsgame.program.activity;
 import android.os.Bundle;
 import androidx.viewpager.widget.ViewPager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android1601.itstep.org.kidsgame.R;
@@ -31,6 +32,9 @@ public class CollectionActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sectionsArrayList = DBHelper.getSections();
+        ArrayList<GiftsSection> foo = new ArrayList<GiftsSection>();
+        foo.add(sectionsArrayList.get(0));
+        sectionsArrayList = foo;
         mViewPagerAdapter = new ViewPagerAdapterCollections(getSupportFragmentManager(),sectionsArrayList);
         mViewPagerCollection.setAdapter(mViewPagerAdapter);
         mViewPagerCollection.addOnPageChangeListener(mViewPagerAdapter);

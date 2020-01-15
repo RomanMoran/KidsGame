@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:orientation="vertical"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/openEggs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:padding="@dimen/default_padding"
+        android:text="@string/open_eggs"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/openPuzzle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:padding="@dimen/default_padding"
+        android:text="@string/open_puzzle"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/openCollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:padding="@dimen/default_padding"
+        android:text="@string/collection"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/aboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:background="@drawable/button_main_activity"
+        android:padding="@dimen/default_padding"
+        android:text="@string/about_us"
+        android:textColor="@color/white" />
+
+    <RadioGroup
+        android:id="@+id/rgLanguages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbEng"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_english"
+            android:button="@null"
+            android:padding="7dp" />
+
+        <RadioButton
+            android:id="@+id/rbRus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_russia"
+            android:button="@null"
+            android:padding="7dp" />
+    </RadioGroup>
+
+</LinearLayout>

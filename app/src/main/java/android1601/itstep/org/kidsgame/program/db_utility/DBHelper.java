@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import android1601.itstep.org.kidsgame.program.activity.MainActivity;
 import android1601.itstep.org.kidsgame.program.data.Gifts;
 import android1601.itstep.org.kidsgame.program.data.GiftsSection;
 import android1601.itstep.org.kidsgame.program.data.Gifts_Table;
@@ -37,7 +36,7 @@ public class DBHelper{
 
 
     public static List<Gifts> getall(){
-        int section = MainActivity.positionCategory;
+        int section = 1;
         return SQLite.select().
                 from(Gifts.class).
                 where(Gifts_Table.objectSection_id.eq(section)).
@@ -60,7 +59,7 @@ public class DBHelper{
 
 
     public static List<Gifts> getUnlockedBySection(){
-        int section = MainActivity.positionCategory;
+        int section = 1;
         return SQLite.select().
                 from(Gifts.class).
                 where(Gifts_Table.unlock.eq(true)).and(Gifts_Table.objectSection_id.eq(section)).
@@ -82,7 +81,7 @@ public class DBHelper{
 
 
     public static List<Gifts> getLocked(){
-        int section = MainActivity.positionCategory;
+        int section = 1;
         return SQLite.select().
                 from(Gifts.class).
                 where(Gifts_Table.unlock.eq(false)).and(Gifts_Table.objectSection_id.eq(section))

@@ -7,16 +7,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerCollection"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <androidx.viewpager.widget.PagerTitleStrip
-            android:background="#777777"
-            android:id="@+id/pagerTitleStrip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/viewPagerTitleStrip"
-            android:layout_gravity="top">
-        </androidx.viewpager.widget.PagerTitleStrip>
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_width="match_parent"/>
 
 
 </LinearLayout>

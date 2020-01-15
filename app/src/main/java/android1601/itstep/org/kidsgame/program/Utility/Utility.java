@@ -9,9 +9,11 @@ import androidx.annotation.NonNull;
 import android.view.Display;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+
 import java.util.Random;
 
-import android1601.itstep.org.kidsgame.program.KidsApplication;
+import android1601.itstep.org.kidsgame.program.KidsKotlinApplication;
 
 /**
  * Created by roman on 14.03.2017.
@@ -25,31 +27,29 @@ public class Utility {
 
     public static int getIdResourceByNameAndType(@NonNull String resName, String resType) {
         try {
-            Context context= KidsApplication.getInstance();
+            Context context = KidsKotlinApplication.Companion.getInstance();
             String packageName = context.getPackageName();
             int resId = context.getResources().getIdentifier(resName, resType, packageName);
             return resId;// getString(resId);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
 
-    public static String getStringResourseById(int id){
-        Context context = KidsApplication.getInstance();
+    public static String getStringResourseById(int id) {
+        Context context = KidsKotlinApplication.Companion.getInstance();
         String name = context.getResources().getResourceName(id);
         return name;
     }
 
-    public static int getRawIdByName(String resName){
-        return getIdResourceByNameAndType(resName,"raw");
+    public static int getRawIdByName(String resName) {
+        return getIdResourceByNameAndType(resName, "raw");
     }
 
 
     public static Point getDisplaySize() {
-        Context context= KidsApplication.getInstance();
+        Context context = KidsKotlinApplication.Companion.getInstance();
         Point point = null;
         if (Build.VERSION.SDK_INT >= 13) {
             point = getDisplaySizeAFTER13(context);
@@ -59,6 +59,7 @@ public class Utility {
         //DebugUtility.logTest(TAG, "DisplaySize x = " + point.x + " y = " + point.y);
         return point;
     }
+
     public static int getStringResourceIdByName(@NonNull String resName) {
         return getIdResourceByNameAndType(resName, "string");
     }
@@ -80,15 +81,15 @@ public class Utility {
         return size;
     }
 
-    public static int getRndFromDb(int limit){
+    public static int getRndFromDb(int limit) {
         return new Random().nextInt(limit);
     }
 
-    public static Typeface getTypeface(){
-        Context context= KidsApplication.getInstance();
+    public static Typeface getTypeface() {
+        Context context = KidsKotlinApplication.Companion.getInstance();
         String custom_font_en = "font/comic.ttf";
         String custom_font_ru = "font/sumkin_typeface.otf";
-        Typeface CF = Typeface.createFromAsset(context.getAssets(), LocaleHelper.getLanguage()=="en"?custom_font_en:custom_font_ru);
+        Typeface CF = Typeface.createFromAsset(context.getAssets(), LocaleHelper.getLanguage() == "en" ? custom_font_en : custom_font_ru);
         return CF;
     }
 

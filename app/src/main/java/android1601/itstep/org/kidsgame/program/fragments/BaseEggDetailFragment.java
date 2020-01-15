@@ -122,14 +122,14 @@ public class BaseEggDetailFragment extends BaseFragment {
         @Override
         protected Void doInBackground(Void... params) {
             if (mGiftsList != null){
-                    int voiceRawId = mGiftsList.getVoiceRawId();
-                    if (voiceRawId != 0)
-                        if (getContext() != null)
-                            mMediaPlayerVoice = MediaPlayer.create(getContext(), voiceRawId);
-                    int soundRawId = mGiftsList.getSoundRawId();
-                    if (soundRawId != 0)
-                        if (getContext() != null)
-                            mMediaPlayerSound = MediaPlayer.create(getContext(), soundRawId);
+                int voiceRawId = mGiftsList.getVoiceRawId();
+                if (voiceRawId != 0)
+                    if (getContext() != null)
+                        mMediaPlayerVoice = MediaPlayer.create(getContext(), voiceRawId);
+                int soundRawId = mGiftsList.getSoundRawId();
+                if (soundRawId != 0)
+                    if (getContext() != null)
+                        mMediaPlayerSound = MediaPlayer.create(getContext(), soundRawId);
 
             }
             return null;
