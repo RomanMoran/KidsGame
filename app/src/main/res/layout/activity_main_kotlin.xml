@@ -51,7 +51,7 @@
         android:layout_marginBottom="@dimen/default_padding"
         android:background="@drawable/button_main_activity"
         android:padding="@dimen/default_padding"
-        android:text="@string/about_us"
+        android:text="@string/rate_us"
         android:textColor="@color/white" />
 
     <RadioGroup

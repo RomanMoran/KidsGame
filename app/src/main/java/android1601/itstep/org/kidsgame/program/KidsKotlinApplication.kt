@@ -7,11 +7,13 @@ import android1601.itstep.org.kidsgame.program.data.LocalStorage
 import android1601.itstep.org.kidsgame.program.di.ContextProvider
 import android1601.itstep.org.kidsgame.program.di.PreferencesProvider
 import android1601.itstep.org.kidsgame.program.ext.lang.SUPPORTED_LOCALES
+import androidx.multidex.MultiDex
+import androidx.multidex.MultiDexApplication
 import com.franmontiel.localechanger.LocaleChanger
 import com.raizlabs.android.dbflow.config.FlowConfig
 import com.raizlabs.android.dbflow.config.FlowManager
 
-class KidsKotlinApplication : Application() {
+class KidsKotlinApplication : MultiDexApplication() {
 
     companion object {
         fun getInstance(): Context {
@@ -36,6 +38,7 @@ class KidsKotlinApplication : Application() {
 
 
     }
+
 
 
     override fun onConfigurationChanged(newConfig: Configuration?) {

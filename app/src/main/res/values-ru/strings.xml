@@ -45,4 +45,5 @@
     <string name="toys">ИГРУШКИ</string>
     <string name="clothes">ОДЕЖДА</string>
     <string name="furniture">МЕБЕЛЬ</string>
+    <string name="rate_us">Поставить оценку</string>
 </resources>

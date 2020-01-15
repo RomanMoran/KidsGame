@@ -1,68 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/llScratch"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    >
-    <TextView
-        android:id="@+id/tvCounter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:visibility="invisible"/>
-    <androidx.percentlayout.widget.PercentRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <FrameLayout
-            app:layout_aspectRatio="66%"
-            app:layout_widthPercent="75%"
-            >
-            <ImageView
-                android:id="@+id/revealedImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"/>
-            <android1601.itstep.org.kidsgame.scratch_utility.ScratchImageView
-                android:id="@+id/scratchImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/default_padding"
-                android:paddingRight="@dimen/default_padding"
-                />
-        </FrameLayout>
-    </androidx.percentlayout.widget.PercentRelativeLayout>
+    android:layout_height="match_parent">
+
+
+    <!--
+        ads:adUnitId="ca-app-pub-2590399222273494/7711085788"
+    -->
 
     <LinearLayout
-        android:id="@+id/llBtnAndText"
+        android:id="@+id/llScratch"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:visibility="invisible" />
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <FrameLayout
+                app:layout_aspectRatio="66%"
+                app:layout_widthPercent="75%">
+
+                <ImageView
+                    android:id="@+id/revealedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+
+                <android1601.itstep.org.kidsgame.scratch_utility.ScratchImageView
+                    android:id="@+id/scratchImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/default_padding"
+                    android:paddingRight="@dimen/default_padding" />
+            </FrameLayout>
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llBtnAndText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/imageName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="40sp"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/btnYet"
                 android:layout_width="100dp"
-                android:enabled="false"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
-                android:text="@string/next_level"
-                />
+                android:enabled="false"
+                android:text="@string/next_level" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
 
-</LinearLayout>
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
