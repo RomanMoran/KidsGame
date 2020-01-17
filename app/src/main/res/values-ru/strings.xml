@@ -46,4 +46,8 @@
     <string name="clothes">ОДЕЖДА</string>
     <string name="furniture">МЕБЕЛЬ</string>
     <string name="rate_us">Поставить оценку</string>
+    <string name="rate_us_gp">Оцените нас на Google Play!</string>
+    <string name="send_email">Отправить письмо</string>
+
+
 </resources>

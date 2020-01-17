@@ -9,7 +9,7 @@ import android1601.itstep.org.kidsgame.program.enums.POSITION_TYPE
 import android1601.itstep.org.kidsgame.program.ui.base.BasePresenterImpl
 import java.util.*
 
-class PuzzlePresenter(private var giftsEntry: List<Gifts>) : BasePresenterImpl<PuzzleView>() {
+class PuzzlePresenter(var giftsEntry: List<Gifts>) : BasePresenterImpl<PuzzleView>() {
 
     private var countWater = 0
     private var countAir = 0
@@ -23,6 +23,9 @@ class PuzzlePresenter(private var giftsEntry: List<Gifts>) : BasePresenterImpl<P
     private var mMediaPlayerSoundWin: MediaPlayer? = null
 
     fun getCompatibleLayout(): Int {
+        countAir = 0
+        countGround = 0
+        countWater = 0
         for (gifts in giftsEntry) {
             when (gifts.positionEnum) {
                 POSITION_TYPE.WATER -> countWater++
@@ -53,7 +56,6 @@ class PuzzlePresenter(private var giftsEntry: List<Gifts>) : BasePresenterImpl<P
             requery()
             return R.layout.fragment_puzzle_one_air_three_ground
         }
-
 
         return R.layout.fragment_puzzle
     }

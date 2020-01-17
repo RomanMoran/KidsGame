@@ -7,6 +7,7 @@ interface ViewNavigator {
     fun clearBackStack()
     fun startActivity(intent: Intent)
     fun startActivity(activityClass: Class<out Activity>, clearBackStack: Boolean = false)
+    fun showWebBrowser(url: String)
     fun showKinderView()
     fun showOpenPuzzlesView(clearBackStack: Boolean = false)
     fun showCollectionView()

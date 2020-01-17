@@ -178,9 +178,9 @@ class PuzzleKotlinFragment : BaseMvpFragment<PuzzlePresenter, PuzzleView>(), Puz
             val imageView = view?.findViewById<ImageView>(imgLeftCarsList[i])
             if (imageView != null) {
 
-                if (giftsEntry.size > i) {
+                if (presenter.giftsEntry.size > i) {
                     // Получаем значение int нашего изображение
-                    val resourceId = giftsEntry[i].imageResId
+                    val resourceId = presenter.giftsEntry[i].imageResId
 
                     // Динамическая загрузка необходимых
                     // изображений в пустые imgCar's
@@ -200,9 +200,9 @@ class PuzzleKotlinFragment : BaseMvpFragment<PuzzlePresenter, PuzzleView>(), Puz
         for (i in imgEmptyCarsList.indices) {
             val imageView = view?.findViewById<ImageView>(imgEmptyCarsList[i])
             if (imageView != null) {
-                if (giftsEntry.size > i) {
+                if (presenter.giftsEntry.size > i) {
                     // Получаем значение int нашего изображения
-                    val resourceId = giftsEntry[i].silhouetteResId
+                    val resourceId = presenter.giftsEntry[i].silhouetteResId
 
                     // Динамическая загрузка необходимых
                     // изображений в пустые imgCar's

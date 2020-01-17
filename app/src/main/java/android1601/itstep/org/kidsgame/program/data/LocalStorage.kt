@@ -11,5 +11,7 @@ class LocalStorage(context: Context) : Preferences {
     private val sharedPrefs by lazy { context.getSharedPreferences("sharedprefs", MODE_PRIVATE) }
 
     override var language: String by sharedPrefs.delegate("appLanguage", LocaleHelper.getLanguage())
+    override var countEnter: Int by sharedPrefs.delegate("countEnter", 0)
+    override var playMarketVisited: Boolean by sharedPrefs.delegate("playMarketVisited", false)
 
 }

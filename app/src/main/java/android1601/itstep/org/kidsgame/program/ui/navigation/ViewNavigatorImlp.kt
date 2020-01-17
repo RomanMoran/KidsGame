@@ -2,6 +2,7 @@ package android1601.itstep.org.kidsgame.program.ui.navigation
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android1601.itstep.org.kidsgame.R
 import android1601.itstep.org.kidsgame.program.activity.CollectionActivity
 import android1601.itstep.org.kidsgame.program.activity.kinder.KinderKotlinActivity
@@ -41,6 +42,37 @@ abstract class AbstractViewNavigator : ViewNavigator {
         fragmentActivity.let { activity ->
             activity?.startActivity(intent)
         }
+    }
+
+    private fun Activity.createActivityIntent(screenKey: String?, data: Any?): Intent? =
+            when (screenKey) {
+                Screens.SEND_EMAIL_SCREEN -> {
+                    val emailIntent = Intent(
+                            Intent.ACTION_SENDTO,
+                            Uri.fromParts("mailto", data as String, null)
+                    )
+
+                    Intent.createChooser(emailIntent, getString(R.string.send_email))
+                }
+                Screens.WEB_BROWSER_SCREEN -> {
+                    Intent(Intent.ACTION_VIEW).apply {
+                        (data as String).let {
+                            if (it.startsWith("http://") || it.startsWith("https://")) {
+                                setData(Uri.parse(it))
+                            } else {
+                                setData(Uri.parse("http://$it"))
+                            }
+                        }
+                    }
+                }
+                else -> null
+            }
+
+    override fun showWebBrowser(url: String) {
+        fragmentActivity?.createActivityIntent(
+                Screens.WEB_BROWSER_SCREEN,
+                url
+        )?.let { startActivity(it) }
     }
 
     override fun showKinderView() {
