@@ -13,4 +13,7 @@
     <color name="birusovii">#3F888F</color>
     <color name="darkBirusovii">#8D917A	</color>
     <color name="textDarkBirusovii">#025669</color>
+
+    <color name="gray">#F4F4F4</color>
+
 </resources>

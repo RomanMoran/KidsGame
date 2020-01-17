@@ -99,20 +99,22 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
         scratchImage.visibility = View.INVISIBLE
         revealedImage.visibility = View.VISIBLE
         imageName.visibility = View.VISIBLE
-        if (!carsForPuzzle) {
-            val howRemainder = 4 - DBHelper.getUnlockedBySection().size
-            tvCounter.text = if (howRemainder == 0) null else context!!.getString(R.string.lacking_of_items) + " " + howRemainder
-
-            if (DBHelper.getUnlockedBySection().size >= 4) {
-                presenter.showWinTextSoundButton()
-            }
-
-        }
 
         val mAnimation = AnimationUtils.loadAnimation(activity, R.anim.combo)
         revealedImage.startAnimation(mAnimation)
         btnYet.isEnabled = true
         tvCounter.visibility = if (carsForPuzzle) View.INVISIBLE else View.VISIBLE
+
+        if (!carsForPuzzle) {
+            val howRemainder = 4 - DBHelper.getUnlockedBySection().size
+            tvCounter.text = if (howRemainder == 0) null else context!!.getString(R.string.lacking_of_items) + " " + howRemainder
+
+            if (DBHelper.getUnlockedBySection().size >= 4) {
+                btnYet.isEnabled = false
+                presenter.showWinTextSoundButton()
+            }
+
+        }
     }
 
     override fun startTransformations() {
@@ -124,7 +126,7 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
         animWinText.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {
                 btnYet.startAnimation(mAnimation)
-                btnYet.setBackgroundColor(resources.getColor(R.color.dorge_blue))
+                btnYet.isEnabled = true
                 btnYet.visibility = View.VISIBLE
             }
 
@@ -147,7 +149,8 @@ class ScratchEggKotlinFragment : BaseMvpFragment<ScratchPresenter, ScratchView>(
         //                                                  false - при нажатии на PuzzleActivity с учетом нехватки автомобилей
 
         if (DBHelper.getUnlockedBySection().size >= 4 && flagFromPuzzles) {
-            navigator.showOpenPuzzlesKotlinView(true)
+            requireActivity().finish()
+            navigator.showOpenPuzzlesKotlinView(false)
         } else {
             // todo recreate this fragment
             navigator.showScratchEggFragment(carsForPuzzle)
