@@ -4,7 +4,7 @@
     <string name="timeout_error">Сервер не отвечает. Попробуйте снова</string>
 
 
-    <string name="app_name">KidsGame</string>
+    <string name="app_name">Surprise Puzzle</string>
     <string name="sound_locale">en</string>
     <string name="wait_loading">Wait&#8230;</string>
     <string name="open_eggs">Kinder</string>

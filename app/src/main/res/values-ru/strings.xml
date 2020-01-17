@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KidsGame</string>
+    <string name="app_name">Surprise Puzzle</string>
     <string name="sound_locale">ru</string>
     <string name="wait_loading">Ожидайте&#8230;</string>
     <string name="open_eggs">Киндер</string>

@@ -37,7 +37,7 @@ abstract class BaseFragment : Fragment() {
         MobileAds.initialize(context!!, "ca-app-pub-2590399222273494~8054060087")
         val phoneid = Settings.Secure.getString(context!!.contentResolver, Settings.Secure.ANDROID_ID)
         val adRequest = AdRequest.Builder()
-                .addTestDevice(phoneid)
+                //.addTestDevice(phoneid)
                 .build()
         val adView = view.findViewById<AdView>(R.id.adView)
         adView?.loadAd(adRequest)

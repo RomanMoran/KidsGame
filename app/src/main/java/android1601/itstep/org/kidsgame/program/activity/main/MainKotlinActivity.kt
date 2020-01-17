@@ -21,7 +21,7 @@ class MainKotlinActivity : BaseActivity() {
         openEggs.setOnClickListener { navigator.showKinderView() }
         openPuzzle.setOnClickListener { navigator.showOpenPuzzlesKotlinView() }
         openCollection.setOnClickListener { navigator.showCollectionView() }
-        aboutUs.setOnClickListener { }
+        rateUs.setOnClickListener { navigator.showWebBrowser(getAppGooglePlayUrl()) }
         rgLanguages.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rbEng -> LocaleChanger.setLocale(EN_LOCALE)
