@@ -60,13 +60,13 @@
             android:text="@string/rate_us"
             android:textColor="@color/white" />
 
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rgLanguages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
+            <ImageView
                 android:id="@+id/rbEng"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -75,7 +75,7 @@
                 android:button="@null"
                 android:padding="7dp" />
 
-            <RadioButton
+            <ImageView
                 android:id="@+id/rbRus"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -84,7 +84,7 @@
                 android:background="@drawable/ic_russia"
                 android:button="@null"
                 android:padding="7dp" />
-        </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"

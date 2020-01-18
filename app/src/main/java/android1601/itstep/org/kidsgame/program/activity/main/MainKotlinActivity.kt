@@ -22,11 +22,12 @@ class MainKotlinActivity : BaseActivity() {
         openPuzzle.setOnClickListener { navigator.showOpenPuzzlesKotlinView() }
         openCollection.setOnClickListener { navigator.showCollectionView() }
         rateUs.setOnClickListener { navigator.showWebBrowser(getAppGooglePlayUrl()) }
-        rgLanguages.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.rbEng -> LocaleChanger.setLocale(EN_LOCALE)
-                else -> LocaleChanger.setLocale(RU_LOCALE)
-            }
+        rbEng.setOnClickListener {
+            LocaleChanger.setLocale(EN_LOCALE)
+            ActivityRecreationHelper.recreate(this, true)
+        }
+        rbRus.setOnClickListener {
+            LocaleChanger.setLocale(RU_LOCALE)
             ActivityRecreationHelper.recreate(this, true)
         }
         checkIfNeedRateDialog()
